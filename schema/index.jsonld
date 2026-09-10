@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "https://example.com/",
+      "name": "ФОРМА",
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com/index.html#webpage",
+      "url": "https://example.com/index.html",
+      "name": "ФОРМА",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@id": "https://example.com/#website"
+      }
+    }
+  ]
+}

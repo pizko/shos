@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110">
-<rect width="100" height="110" fill="#14161A"/>
-<mask id="l"><rect width="100" height="110" fill="#fff"/><g fill="#000"><rect x="0" y="10" width="100" height="2.8"/><rect x="0" y="19" width="100" height="2.8"/><rect x="0" y="28" width="100" height="2.8"/><rect x="0" y="37" width="100" height="2.8"/><rect x="0" y="46" width="100" height="2.8"/><rect x="0" y="55" width="100" height="2.8"/><rect x="0" y="64" width="100" height="2.8"/><rect x="0" y="82" width="100" height="2.8"/><rect x="0" y="91" width="100" height="2.8"/><rect x="0" y="100" width="100" height="2.8"/></g></mask>
-<g mask="url(#l)" fill="#FF8A2B">
-<ellipse cx="50" cy="29" rx="26" ry="28"/><ellipse cx="50" cy="91" rx="18" ry="17"/>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#050505"/>
+  <circle cx="14" cy="16" r="4" fill="#ec4899"/>
+  <path d="M16 43V23h32v7H25v6h20v7H16Z" fill="#fff"/>
+</svg>

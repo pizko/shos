@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "https://example.com/",
+      "name": "ФОРМА",
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://example.com/cart.html#webpage",
+      "url": "https://example.com/cart.html",
+      "name": "Корзина",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@id": "https://example.com/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://example.com/cart.html#breadcrumbs"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://example.com/cart.html#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://example.com/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Корзина",
+          "item": "https://example.com/cart.html"
+        }
+      ]
+    }
+  ]
+}

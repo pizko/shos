@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="ru" class="scroll-smooth"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ФОРМА — Магазин Кроссовок</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>ФОРМА — Магазин Кроссовок</title>
   
   
   
-<meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/refine.css"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://example.com/#website", "url": "https://example.com/", "name": "ФОРМА", "inLanguage": "ru-RU"}, {"@type": "WebPage", "@id": "https://example.com/index.html#webpage", "url": "https://example.com/index.html", "name": "ФОРМА", "inLanguage": "ru-RU", "isPartOf": {"@id": "https://example.com/#website"}}]}</script><script defer src="assets/products.js"></script><script defer src="assets/app.js"></script><script defer src="assets/refine.js"></script></head>
+{{robots}}<link rel="stylesheet" href="assets/styles.css">{{jsonld}}<script defer src="assets/products.js"></script><script defer src="assets/app.js"></script></head>
 <body data-page="index">
   <div class="min-h-screen bg-[#050505] text-white flex flex-col relative" data-sd-id="1">
     
@@ -41,7 +41,7 @@
       <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full" data-sd-id="17">
         <div class="flex flex-col gap-6 order-2 md:order-1" data-sd-id="18">
           <div class="uppercase text-sm font-bold tracking-[0.2em] text-[#999999]" data-sd-id="19">
-            КРОССОВКИ / В ТВОЁМ РИТМЕ
+            КРОССОВКИ / В ТВОЁМ {{product.ritm.name}}Е
           </div>
           <h2 class="text-5xl md:text-7xl font-heavy uppercase leading-[0.9]" data-sd-id="20">
             Движение без<br>компромиссов
@@ -60,16 +60,16 @@
           <div class="scene" data-sd-id="25">
             <div class="cube" data-sd-id="26">
               <div class="cube-face face-front" data-sd-id="27">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Красные кроссовки" data-sd-id="28">
+                <img src="{{product.impuls.image}}" alt="Красные кроссовки" data-sd-id="28">
               </div>
               <div class="cube-face face-back" data-sd-id="29">
                 <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Белые кроссовки" data-sd-id="30">
               </div>
               <div class="cube-face face-top md:face-top face-right" data-sd-id="31">
-                <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Спортивные кроссовки" data-sd-id="32">
+                <img src="{{product.ritm.image}}" alt="Спортивные кроссовки" data-sd-id="32">
               </div>
               <div class="cube-face face-bottom md:face-bottom face-left" data-sd-id="33">
-                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Городские кроссовки" data-sd-id="34">
+                <img src="{{product.marshrut.image}}" alt="Городские кроссовки" data-sd-id="34">
               </div>
             </div>
           </div>
@@ -147,15 +147,15 @@
           <!-- Product 1 -->
           <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="74">
             <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="75">
-              <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Городские кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="76">
+              <img src="{{product.gorod-01.image}}" alt="Городские кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="76">
             </div>
             <div data-sd-id="77">
               <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="78">Город</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="79"><a id="home-product-gorod" href="product.html">ГОРОД 01</a></h4>
-              <p class="text-xl font-light mt-1" data-sd-id="80">12 500 ₽</p>
+              <h4 class="text-xl font-bold uppercase" data-sd-id="79"><a id="home-product-gorod" href="product.html">{{product.gorod-01.name}}</a></h4>
+              <p class="text-xl font-light mt-1" data-sd-id="80">{{product.gorod-01.priceFormatted}}</p>
             </div>
             <div class="mt-auto" data-sd-id="81">
-              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="82"><option value="">Размер</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option></select>
+              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="82">{{product.gorod-01.sizeOptions}}</select>
               <button class="w-full py-3 accent-gradient font-bold uppercase tracking-widest text-sm hover:scale-[1.02] transition-transform" data-sd-id="88">В корзину</button>
             </div>
           </div>
@@ -163,15 +163,15 @@
            <!-- Product 2 -->
            <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="89">
             <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="90">
-              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Красные кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="91">
+              <img src="{{product.impuls.image}}" alt="Красные кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="91">
             </div>
             <div data-sd-id="92">
               <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="93">Бег</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="94">ИМПУЛЬС</h4>
-              <p class="text-xl font-light mt-1" data-sd-id="95">14 900 ₽</p>
+              <h4 class="text-xl font-bold uppercase" data-sd-id="94">{{product.impuls.name}}</h4>
+              <p class="text-xl font-light mt-1" data-sd-id="95">{{product.impuls.priceFormatted}}</p>
             </div>
             <div class="mt-auto" data-sd-id="96">
-               <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="97"><option value="">Размер</option><option value="39">39</option><option value="40">40</option><option value="42">42</option></select>
+               <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="97">{{product.impuls.sizeOptions}}</select>
               <button class="w-full py-3 glass-border font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors" data-sd-id="102">В корзину</button>
             </div>
           </div>
@@ -179,15 +179,15 @@
           <!-- Product 3 -->
           <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="103">
             <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="104">
-              <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Светлые кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="105">
+              <img src="{{product.ritm.image}}" alt="Светлые кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="105">
             </div>
             <div data-sd-id="106">
               <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="107">На каждый день</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="108">РИТМ</h4>
-              <p class="text-xl font-light mt-1" data-sd-id="109">8 900 ₽</p>
+              <h4 class="text-xl font-bold uppercase" data-sd-id="108">{{product.ritm.name}}</h4>
+              <p class="text-xl font-light mt-1" data-sd-id="109">{{product.ritm.priceFormatted}}</p>
             </div>
             <div class="mt-auto" data-sd-id="110">
-              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="111"><option value="">Размер</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option></select>
+              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="111">{{product.ritm.sizeOptions}}</select>
               <button class="w-full py-3 glass-border font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors" data-sd-id="117">В корзину</button>
             </div>
           </div>
@@ -195,15 +195,15 @@
           <!-- Product 4 -->
           <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="118">
             <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="119">
-              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Кроссовки для города" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="120">
+              <img src="{{product.marshrut.image}}" alt="Кроссовки для города" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="120">
             </div>
             <div data-sd-id="121">
               <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="122">Город</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="123">МАРШРУТ</h4>
-              <p class="text-xl font-light mt-1" data-sd-id="124">16 200 ₽</p>
+              <h4 class="text-xl font-bold uppercase" data-sd-id="123">{{product.marshrut.name}}</h4>
+              <p class="text-xl font-light mt-1" data-sd-id="124">{{product.marshrut.priceFormatted}}</p>
             </div>
             <div class="mt-auto" data-sd-id="125">
-              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="126"><option value="">Размер</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option></select>
+              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="126">{{product.marshrut.sizeOptions}}</select>
               <button class="w-full py-3 glass-border font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors" data-sd-id="132">В корзину</button>
             </div>
           </div>
@@ -214,7 +214,7 @@
     <!-- Functional Styles Section -->
     <section class="glow-section py-32 px-6 overflow-hidden z-10" data-sd-id="133">
       <div class="max-w-7xl mx-auto relative z-10" data-sd-id="134">
-        <h2 class="text-center text-[5vw] font-heavy uppercase mb-16" data-sd-id="135">ТРИ РИТМА</h2>
+        <h2 class="text-center text-[5vw] font-heavy uppercase mb-16" data-sd-id="135">ТРИ {{product.ritm.name}}А</h2>
         
         <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4" data-sd-id="136">
           <!-- Left -->
