@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Корзина — ФОРМА</title>
+<meta name="description" content="Выбранные пары.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#14161A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/products.js"></script>
+<script defer src="assets/app.js"></script>
+</head>
+<body data-page="cart">
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="m-lugs" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="110">
+      <rect width="100" height="110" fill="#fff"/>
+      <g fill="#000"><rect x="0" y="10" width="100" height="2.8"/><rect x="0" y="19" width="100" height="2.8"/><rect x="0" y="28" width="100" height="2.8"/><rect x="0" y="37" width="100" height="2.8"/><rect x="0" y="46" width="100" height="2.8"/><rect x="0" y="55" width="100" height="2.8"/><rect x="0" y="64" width="100" height="2.8"/><rect x="0" y="82" width="100" height="2.8"/><rect x="0" y="91" width="100" height="2.8"/><rect x="0" y="100" width="100" height="2.8"/></g>
+    </mask>
+  </defs>
+  <symbol id="i-tread" viewBox="0 0 100 110">
+    <g mask="url(#m-lugs)" fill="currentColor">
+      <ellipse cx="50" cy="29" rx="26" ry="28"/>
+      <ellipse cx="50" cy="91" rx="18" ry="17"/>
+    </g>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/>
+  </symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 8h12l-1.1 12.2A2 2 0 0 1 14.9 22H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/>
+  </symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <path d="M6 6l12 12M18 6 6 18"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h13M12.5 6l6 6-6 6"/>
+  </symbol>
+</svg>
+<header class="nav">
+  <a class="nav__brand" href="index.html"><span class="lamp" aria-hidden="true"></span>ФОРМА</a>
+  <nav class="nav__links" aria-label="Основные разделы">
+    <a href="catalog.html">Каталог</a>
+    <a href="index.html#focus">Подборки</a>
+    <a href="index.html#budget">Подбор</a>
+  </nav>
+  <div class="nav__side">
+    <a class="icon-btn" href="catalog.html" aria-label="Найти пару в каталоге"><svg aria-hidden="true"><use href="#i-search"/></svg></a>
+    <button class="cart-btn" type="button" data-open-cart aria-label="Открыть корзину">
+      <svg aria-hidden="true"><use href="#i-bag"/></svg>
+      <span class="lbl">Корзина</span>
+      <span class="cart-count">0</span>
+    </button>
+  </div>
+</header>
+<main>
+<section class="wrap page-head">
+  <p class="crumbs"><a href="index.html">Главная</a><span>/</span>Корзина</p>
+  <h1 class="display h-lg">Корзина</h1>
+  <p class="lede" style="margin-top:14px">Пар в корзине: <span class="mono" data-cart-n>0</span></p>
+</section>
+
+<section class="wrap" style="padding-bottom:var(--sect)">
+  <div class="checkout">
+    <div class="panel">
+      <div data-cart-lines style="display:flex;flex-direction:column;gap:20px"></div>
+    </div>
+    <div class="panel">
+      <h2 class="h-sm" style="margin-bottom:18px">Итог</h2>
+      <div class="sum-row"><span>Товары</span><span class="mono" data-cart-total>0 ₽</span></div>
+      <div class="sum-row"><span>Доставка</span><span class="mono">рассчитывается при оформлении</span></div>
+      <div class="sum-row sum-row--total"><span>К оплате</span><b data-cart-total>0 ₽</b></div>
+      <a class="btn btn--solid btn--wide" href="checkout.html" style="margin-top:20px">Оформить</a>
+      <a class="btn btn--ghost btn--wide" href="catalog.html" style="margin-top:10px">Продолжить выбор</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__mark">Твой<br>ход<span class="dot">.</span></p>
+    <div class="foot__cols">
+      <div>
+        <h3>О магазине</h3>
+        <p class="lede">Концепт магазина кроссовок: восемь моделей для города, бега
+        и обычного вторника. У каждой пары указаны вес, высота стека и перепад —
+        чтобы выбирать по характеру подошвы, а не по силе баннера.</p>
+      </div>
+      <div>
+        <h3>Каталог</h3>
+        <ul>
+          <li><a href="catalog.html?cat=city">Город</a></li>
+          <li><a href="catalog.html?cat=run">Бег</a></li>
+          <li><a href="catalog.html?cat=every">Каждый день</a></li>
+          <li><a href="catalog.html">Все модели</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Покупателю</h3>
+        <ul>
+          <li><a href="cart.html">Корзина</a></li>
+          <li><a href="checkout.html">Оформление</a></li>
+          <li><a href="index.html#budget">Подбор по бюджету</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>ФОРМА — дизайн-концепт</span>
+      <p class="note"><b>Дизайн-концепт.</b><br>
+      Модели, цены и характеристики приведены для примера. Заказ не оформляется,
+      оплата не проводится, данные форм никуда не передаются.</p>
+    </div>
+  </div>
+</footer><div class="scrim" id="cart" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="true">
+  <div class="drawer">
+    <div class="drawer__head">
+      <h2 class="h-sm">Корзина</h2>
+      <button class="icon-btn" id="cart-close" type="button" aria-label="Закрыть корзину"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="drawer__body" data-cart-lines></div>
+    <div class="drawer__foot">
+      <div class="drawer__sum"><span>Итого</span><b data-cart-total>0 ₽</b></div>
+      <a class="btn btn--solid btn--wide" href="checkout.html">Оформить</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

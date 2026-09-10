@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ФОРМА — магазин кроссовок</title>
+<meta name="description" content="Концепт магазина кроссовок: город, бег и каждый день. Вес, стек и перепад у каждой пары.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#14161A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script defer src="assets/products.js"></script>
+<script defer src="assets/app.js"></script>
+</head>
+<body data-page="index">
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="m-lugs" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="110">
+      <rect width="100" height="110" fill="#fff"/>
+      <g fill="#000"><rect x="0" y="10" width="100" height="2.8"/><rect x="0" y="19" width="100" height="2.8"/><rect x="0" y="28" width="100" height="2.8"/><rect x="0" y="37" width="100" height="2.8"/><rect x="0" y="46" width="100" height="2.8"/><rect x="0" y="55" width="100" height="2.8"/><rect x="0" y="64" width="100" height="2.8"/><rect x="0" y="82" width="100" height="2.8"/><rect x="0" y="91" width="100" height="2.8"/><rect x="0" y="100" width="100" height="2.8"/></g>
+    </mask>
+  </defs>
+  <symbol id="i-tread" viewBox="0 0 100 110">
+    <g mask="url(#m-lugs)" fill="currentColor">
+      <ellipse cx="50" cy="29" rx="26" ry="28"/>
+      <ellipse cx="50" cy="91" rx="18" ry="17"/>
+    </g>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/>
+  </symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 8h12l-1.1 12.2A2 2 0 0 1 14.9 22H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/>
+  </symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <path d="M6 6l12 12M18 6 6 18"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h13M12.5 6l6 6-6 6"/>
+  </symbol>
+</svg>
+<header class="nav">
+  <a class="nav__brand" href="index.html"><span class="lamp" aria-hidden="true"></span>ФОРМА</a>
+  <nav class="nav__links" aria-label="Основные разделы">
+    <a href="catalog.html">Каталог</a>
+    <a href="index.html#focus">Подборки</a>
+    <a href="index.html#budget">Подбор</a>
+  </nav>
+  <div class="nav__side">
+    <a class="icon-btn" href="catalog.html" aria-label="Найти пару в каталоге"><svg aria-hidden="true"><use href="#i-search"/></svg></a>
+    <button class="cart-btn" type="button" data-open-cart aria-label="Открыть корзину">
+      <svg aria-hidden="true"><use href="#i-bag"/></svg>
+      <span class="lbl">Корзина</span>
+      <span class="cart-count">0</span>
+    </button>
+  </div>
+</header>
+<main>
+
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow" data-fade>Кроссовки / в твоём ритме</p>
+      <h1 class="display h-xl hero__title" id="hero-title">
+        <span class="ln"><span>Держи</span></span>
+        <span class="ln"><span>свой</span></span>
+        <span class="ln"><span>шаг</span></span>
+      </h1>
+      <p class="lede" data-fade>Восемь моделей для города, бега и обычного вторника.
+      У каждой пары — вес, высота стека и перепад, чтобы выбирать по делу.</p>
+      <div data-fade>
+        <a class="btn btn--solid" href="catalog.html">Смотреть каталог <svg width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <dl class="hero__meta" data-fade>
+        <div><dt>Моделей</dt><dd>8</dd></div>
+        <div><dt>Размеры</dt><dd>36—46</dd></div>
+        <div><dt>Перепад</dt><dd>6—8 мм</dd></div>
+      </dl>
+    </div>
+    <div class="hero__path" aria-hidden="true">
+      <div class="tread-trail" id="trail"></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__row">
+    <span>Город<svg viewBox="0 0 100 110"><use href="#i-tread"/></svg>Бег<svg viewBox="0 0 100 110"><use href="#i-tread"/></svg>Каждый день<svg viewBox="0 0 100 110"><use href="#i-tread"/></svg></span>
+    <span>Город<svg viewBox="0 0 100 110"><use href="#i-tread"/></svg>Бег<svg viewBox="0 0 100 110"><use href="#i-tread"/></svg>Каждый день<svg viewBox="0 0 100 110"><use href="#i-tread"/></svg></span>
+  </div>
+</div>
+
+<section class="section" id="focus">
+  <div class="wrap">
+    <div class="sect-head rise">
+      <div class="sect-head__top">
+        <h2 class="display h-lg">В фокусе</h2>
+        <a class="link-u" href="catalog.html">Все модели</a>
+      </div>
+      <p class="lede">Три подборки по тому, где вы в них пойдёте.</p>
+    </div>
+    <div class="bento">
+      <a class="tile tile--wide rise" href="catalog.html?cat=city">
+        <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&amp;fit=crop&amp;w=1500&amp;q=80" alt="" loading="lazy" width="1500" height="1000">
+        <div class="tile__body">
+          <span class="tile__spec">2 модели · от 12 500 ₽</span>
+          <h3 class="display h-md">Город</h3>
+          <p class="tile__n">Плотный протектор и низкий силуэт для длинных переходов по мокрому асфальту.</p>
+        </div>
+      </a>
+      <a class="tile rise" href="catalog.html?cat=run">
+        <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="" loading="lazy" width="1000" height="1000">
+        <div class="tile__body">
+          <span class="tile__spec">3 модели · от 14 900 ₽</span>
+          <h3 class="display h-md">Бег</h3>
+          <p class="tile__n">Высокий стек и отзывчивая пена.</p>
+        </div>
+      </a>
+      <a class="tile rise" href="catalog.html?cat=every">
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="" loading="lazy" width="1000" height="1000">
+        <div class="tile__body">
+          <span class="tile__spec">3 модели · от 8 900 ₽</span>
+          <h3 class="display h-md">Каждый день</h3>
+          <p class="tile__n">Плоская подошва и спокойная форма.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catalog" style="padding-top:0">
+  <div class="wrap">
+    <div class="tread-rule"><span class="lugs"><svg viewBox="0 0 100 110" aria-hidden="true"><use href="#i-tread"/></svg><svg viewBox="0 0 100 110" aria-hidden="true"><use href="#i-tread"/></svg><svg viewBox="0 0 100 110" aria-hidden="true"><use href="#i-tread"/></svg></span></div>
+    <div class="sect-head rise" style="margin-top:48px">
+      <div class="sect-head__top">
+        <h2 class="display h-lg">Выбирай свою пару</h2>
+        <a class="link-u" href="catalog.html">Весь каталог</a>
+      </div>
+      <p class="lede">Четыре модели из восьми. Размер выбирается на карточке.</p>
+    </div>
+    <div id="grid" class="grid-products" data-limit="4"></div>
+  </div>
+</section>
+
+<section class="section routes">
+  <div class="wrap">
+    <div class="sect-head rise">
+      <p class="eyebrow">Три маршрута</p>
+      <h2 class="display h-lg">Куда вы в них пойдёте</h2>
+    </div>
+    <div class="routes__grid">
+      <a class="route rise" href="catalog.html?cat=every">
+        <svg class="route__ico" viewBox="0 0 100 110" aria-hidden="true"><use href="#i-tread"/></svg>
+        <h3 class="h-sm">Каждый день</h3>
+        <p>Дорога до метро, магазин, двор. Плоская подошва и минимум лишнего.</p>
+        <div class="route__spec">
+          <div><span class="k">Покрытие</span><span class="v">Тротуар</span></div>
+          <div><span class="k">Дистанция</span><span class="v">До 5 км</span></div>
+          <div><span class="k">Темп</span><span class="v">Спокойный</span></div>
+        </div>
+        <span class="link-u">Смотреть подборку</span>
+      </a>
+      <a class="route rise" href="catalog.html?cat=city">
+        <svg class="route__ico" viewBox="0 0 100 110" aria-hidden="true"><use href="#i-tread"/></svg>
+        <h3 class="h-sm">Город</h3>
+        <p>Долгий день на ногах и переменная погода. Цепкий протектор, защищённый верх.</p>
+        <div class="route__spec">
+          <div><span class="k">Покрытие</span><span class="v">Асфальт, плитка</span></div>
+          <div><span class="k">Дистанция</span><span class="v">5—15 км</span></div>
+          <div><span class="k">Темп</span><span class="v">Переменный</span></div>
+        </div>
+        <span class="link-u">Смотреть подборку</span>
+      </a>
+      <a class="route rise" href="catalog.html?cat=run">
+        <svg class="route__ico" viewBox="0 0 100 110" aria-hidden="true"><use href="#i-tread"/></svg>
+        <h3 class="h-sm">Движение</h3>
+        <p>Тренировка по набережной или стадиону. Высокий стек и возврат энергии.</p>
+        <div class="route__spec">
+          <div><span class="k">Покрытие</span><span class="v">Асфальт, дорожка</span></div>
+          <div><span class="k">Дистанция</span><span class="v">От 10 км</span></div>
+          <div><span class="k">Темп</span><span class="v">Высокий</span></div>
+        </div>
+        <span class="link-u">Смотреть подборку</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="budget">
+  <div class="wrap">
+    <div class="sect-head rise" style="align-items:center;text-align:center">
+      <h2 class="display h-lg">Подбор по бюджету</h2>
+      <p class="lede" style="margin-inline:auto">Сдвиньте сумму — покажем пары, которые в неё укладываются.</p>
+    </div>
+    <div class="budget rise">
+      <div class="budget__read">
+        <div>
+          <p class="eyebrow eyebrow--fog" style="margin-bottom:8px">До</p>
+          <span class="budget__val" id="budget-val">15 000 ₽</span>
+        </div>
+        <p class="budget__cnt">Подходит пар<b id="budget-n">0</b></p>
+      </div>
+      <input class="range" type="range" id="budget-range" min="5000" max="30000" step="500" value="15000"
+             aria-label="Максимальная сумма в рублях">
+      <div class="budget__scale"><span>5 000 ₽</span><span>30 000 ₽</span></div>
+      <div class="budget__hits" id="budget-hits"></div>
+      <p class="note" style="margin-top:22px;max-width:none"><b>Это фильтр по цене.</b><br>
+      Не рассрочка и не кредит: подбор просто показывает модели дешевле указанной суммы.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__mark">Твой<br>ход<span class="dot">.</span></p>
+    <div class="foot__cols">
+      <div>
+        <h3>О магазине</h3>
+        <p class="lede">Концепт магазина кроссовок: восемь моделей для города, бега
+        и обычного вторника. У каждой пары указаны вес, высота стека и перепад —
+        чтобы выбирать по характеру подошвы, а не по силе баннера.</p>
+      </div>
+      <div>
+        <h3>Каталог</h3>
+        <ul>
+          <li><a href="catalog.html?cat=city">Город</a></li>
+          <li><a href="catalog.html?cat=run">Бег</a></li>
+          <li><a href="catalog.html?cat=every">Каждый день</a></li>
+          <li><a href="catalog.html">Все модели</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Покупателю</h3>
+        <ul>
+          <li><a href="cart.html">Корзина</a></li>
+          <li><a href="checkout.html">Оформление</a></li>
+          <li><a href="index.html#budget">Подбор по бюджету</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>ФОРМА — дизайн-концепт</span>
+      <p class="note"><b>Дизайн-концепт.</b><br>
+      Модели, цены и характеристики приведены для примера. Заказ не оформляется,
+      оплата не проводится, данные форм никуда не передаются.</p>
+    </div>
+  </div>
+</footer><div class="scrim" id="cart" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="true">
+  <div class="drawer">
+    <div class="drawer__head">
+      <h2 class="h-sm">Корзина</h2>
+      <button class="icon-btn" id="cart-close" type="button" aria-label="Закрыть корзину"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="drawer__body" data-cart-lines></div>
+    <div class="drawer__foot">
+      <div class="drawer__sum"><span>Итого</span><b data-cart-total>0 ₽</b></div>
+      <a class="btn btn--solid btn--wide" href="checkout.html">Оформить</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
