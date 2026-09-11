@@ -1,0 +1,6 @@
+# Выгрузки и рабочие файлы каталога
+import/products.xlsx
+import/products.csv
+data/products.backup.json
+build/__pycache__/
+.DS_Store

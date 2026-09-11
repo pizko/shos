@@ -7,7 +7,7 @@ import comp
 from comp import (e, money, img, gallery, in_stock, discount, fmt_size, icon,
                   head, page, header, footer, breadcrumbs, product_grid, product_card,
                   trust_block, size_chart, empty_state, title_of, product_url,
-                  CATEGORIES, GENDERS, COLORS, COLOR_HEX,
+                  CATEGORIES, GENDERS, COLORS, COLOR_HEX, plural,
                   org_schema, website_schema, breadcrumb_schema, product_schema)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -327,17 +327,48 @@ def build_home():
         "new-balance-x90-pink-grey", "nike-free-rn-5-black-volt")]
     sale = sorted([p for p in PRODUCTS if p.get("oldPrice")], key=lambda p: -discount(p))[:3]
 
-    tiles = [
-        ("Мужское", "catalog/mens/", "photo-1549298916-b41d501d3772"),
-        ("Женское", "catalog/womens/", "photo-1551107696-a4b0c5a0d9a2"),
-        ("Бег", "catalog/running/", "photo-1542291026-7eec264c27ff"),
-        ("Lifestyle", "catalog/lifestyle/", "photo-1514989940723-e8e51635b782"),
+    def count_for(pred):
+        return sum(1 for p in PRODUCTS if pred(p))
+
+    # Баннер на всю ширину и две плитки под ним — ссылки на разделы каталога
+    bento = [
+        ("Мужское", "catalog/mens/", "photo-1514989940723-e8e51635b782",
+         "Город, зал и бег", count_for(lambda p: p["gender"] in ("men", "unisex")), True),
+        ("Женское", "catalog/womens/", "photo-1551107696-a4b0c5a0d9a2",
+         "Силуэты на каждый день", count_for(lambda p: p["gender"] in ("women", "unisex")), False),
+        ("Бег", "catalog/running/", "photo-1542291026-7eec264c27ff",
+         "Асфальт и стадион", count_for(lambda p: p["category"] == "running"), False),
     ]
     tiles_html = "".join(
-        f'<a class="tile" href="{u(path)}">'
-        f'<img src="{img(pid, 760, 900)}" alt="" width="760" height="900" loading="lazy">'
-        f'<span class="tile__t">{e(t)}</span><span class="tile__go">Смотреть{icon("chev", 16)}</span></a>'
-        for t, path, pid in tiles)
+        f'<a class="tile{" tile--wide" if wide else ""}" href="{u(path)}">'
+        f'<img src="{img(pid, 1400, 790) if wide else img(pid, 700, 530)}" alt=""'
+        f' width="{1400 if wide else 700}" height="{790 if wide else 530}" loading="lazy">'
+        f'<span class="tile__body">'
+        f'<span class="tile__t">{e(t)}</span>'
+        f'<span class="tile__s">{e(sub)}</span>'
+        f'</span>'
+        f'<span class="tile__go">{plural(n, "модель", "модели", "моделей")}{icon("chev", 16)}</span></a>'
+        for t, path, pid, sub, n, wide in bento)
+
+
+    lo = int(min(p["price"] for p in PRODUCTS) // 1000 * 1000)
+    hi = int(-(-max(p["price"] for p in PRODUCTS) // 1000) * 1000)
+    start = int((lo + hi) // 2 // 500 * 500)
+    rhythms = [
+        ("На каждый день", "catalog/lifestyle/", "Плоская подошва и спокойная форма",
+         count_for(lambda p: p["category"] == "lifestyle")),
+        ("Для зала", "catalog/training/", "Устойчивая пятка и гибкий мысок",
+         count_for(lambda p: p["category"] == "training")),
+        ("Для движения", "catalog/running/", "Высокий стек и возврат энергии",
+         count_for(lambda p: p["category"] == "running")),
+    ]
+    rhythm_html = "".join(
+        f'<a class="rhythm" href="{u(path)}">'
+        f'<span class="rhythm__n">{plural(n, "модель", "модели", "моделей")}</span>'
+        f'<span class="rhythm__t">{e(t)}</span>'
+        f'<span class="rhythm__s">{e(s)}</span>'
+        f'<span class="rhythm__go">Смотреть{icon("chev", 15)}</span></a>'
+        for t, path, s, n in rhythms)
 
     adv = "".join(f'<li><h3>{e(a["title"])}</h3><p>{e(a["text"])}</p></li>' for a in c["advantages"])
 
@@ -393,6 +424,28 @@ def build_home():
   {product_grid(sale, BRANDS, u)}
 </section>
 
+<section class="glow-section rhythms-sect">
+  <div class="wrap">
+    <div class="sect__head"><h2 class="sect__ttl">Три ритма</h2></div>
+    <div class="rhythms">{rhythm_html}</div>
+
+    <div class="budget">
+      <h3 class="budget__ttl">Подбор по бюджету</h3>
+      <div class="budget__read">
+        <span class="budget__label">До</span>
+        <span class="budget__val" id="budget-val">{money(start)}</span>
+        <span class="budget__cnt">Подходит пар: <b id="budget-n">0</b></span>
+      </div>
+      <input class="budget__range" type="range" id="budget-range"
+             min="{lo}" max="{hi}" step="500" value="{start}"
+             aria-label="Максимальная цена в рублях">
+      <div class="budget__scale"><span>{money(lo)}</span><span>{money(hi)}</span></div>
+      <div class="budget__hits" id="budget-hits"></div>
+      <a class="btn btn--white" id="budget-go" href="{u('catalog/')}">Показать варианты</a>
+    </div>
+  </div>
+</section>
+
 <section class="adv">
   <div class="wrap">
     <h2 class="sect__ttl">{e(c['advantagesTitle'])}</h2>
@@ -429,7 +482,7 @@ def build_brands():
       <span class="brandcard__name">{e(b['name'])}</span>
       <span class="brandcard__meta">{e(b['country'])} · с {b['founded']}</span>
       <p class="brandcard__sum">{e(b['summary'])}</p>
-      <span class="brandcard__n">{len(items)} моделей</span>
+      <span class="brandcard__n">{plural(len(items), "модель", "модели", "моделей")}</span>
     </a>"""
     crumbs = [("Главная", ""), ("Бренды", "brands/")]
     h = head(CFG, u, title="Бренды — %s" % CFG["siteName"],
@@ -919,20 +972,7 @@ def build_sitemap():
     mk("robots.txt", "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % base)
 
 
-def clean_legacy():
-    for f in ("catalog.html", "product.html", "cart.html", "checkout.html",
-              "CMS_FIELDS.md", "assets/products.js", "assets/app.js", "assets/refine.js"):
-        p = os.path.join(ROOT, f)
-        if os.path.exists(p):
-            os.remove(p)
-    for d in ("templates", "schema", "tools"):
-        p = os.path.join(ROOT, d)
-        if os.path.isdir(p):
-            shutil.rmtree(p)
-
-
 def main():
-    clean_legacy()
     build_home()
     build_catalog()
     build_products()

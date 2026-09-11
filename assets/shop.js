@@ -16,6 +16,12 @@
   var money = function (n) { return Number(n).toLocaleString('ru-RU') + ' ₽'; };
   var url = function (p) { return BASE + p; };
   var fmtSize = function (s) { return (Number(s) % 1 === 0) ? String(Number(s)) : String(s); };
+  var plural = function (n, one, few, many) {
+    n = Math.abs(n | 0);
+    if (n % 10 === 1 && n % 100 !== 11) return n + ' ' + one;
+    if (n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14)) return n + ' ' + few;
+    return n + ' ' + many;
+  };
   var esc = function (s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -309,6 +315,11 @@
       if (sortSel) sortSel.value = 'popular';
       apply();
     });
+    var qsMax = new URLSearchParams(location.search).get('maxPrice');
+    if (qsMax && pMax) {
+      var capped = Math.min(Number(qsMax), Number(pMax.max));
+      if (capped >= Number(pMax.min)) pMax.value = capped;
+    }
     if (emptyEl) emptyEl.hidden = true;
     apply();
   }
@@ -543,6 +554,40 @@
       d.total = money(cartTotal());
       send(checkout, 'Заказ с сайта на ' + money(cartTotal()), d);
     });
+  }
+
+
+  /* ── подбор по бюджету ────────────────────────────── */
+  var range = $('#budget-range');
+  if (range) {
+    var bVal = $('#budget-val'), bCnt = $('#budget-n'),
+        bHits = $('#budget-hits'), bGo = $('#budget-go');
+    var baseHref = bGo ? bGo.getAttribute('href') : url('catalog/');
+
+    var tick = function () {
+      var v = Number(range.value);
+      var pct = ((v - range.min) / (range.max - range.min)) * 100;
+      range.style.setProperty('--fill', pct + '%');
+      if (bVal) bVal.textContent = money(v);
+
+      var fit = P.filter(function (p) { return p.price <= v; })
+                 .sort(function (a, b) { return b.price - a.price; });
+      if (bCnt) bCnt.textContent = fit.length;
+      if (bHits) {
+        bHits.innerHTML = fit.length
+          ? fit.slice(0, 8).map(function (p) {
+              return '<a class="hit" href="' + url(p.url) + '">' + esc(p.model) +
+                     ' <b>' + money(p.price) + '</b></a>';
+            }).join('')
+          : '<span class="budget__label">В эту сумму пока не попадает ни одна пара — поднимите бюджет.</span>';
+      }
+      if (bGo) {
+        bGo.href = baseHref + '?maxPrice=' + v;
+        bGo.textContent = fit.length ? 'Показать ' + plural(fit.length, 'модель', 'модели', 'моделей') : 'Весь каталог';
+      }
+    };
+    range.addEventListener('input', tick);
+    tick();
   }
 
   /* ── параллакс витрины на главной ─────────────────── */

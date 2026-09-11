@@ -51,6 +51,16 @@ def money(n):
     return "{:,}".format(int(n)).replace(",", " ") + " ₽"
 
 
+def plural(n, one, few, many):
+    """Русское склонение: 1 модель, 2 модели, 5 моделей."""
+    n = abs(int(n))
+    if n % 10 == 1 and n % 100 != 11:
+        return "%d %s" % (n, one)
+    if 2 <= n % 10 <= 4 and not 12 <= n % 100 <= 14:
+        return "%d %s" % (n, few)
+    return "%d %s" % (n, many)
+
+
 def fmt_size(s):
     return str(int(s)) if float(s) == int(s) else str(s)
 
