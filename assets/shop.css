@@ -263,6 +263,38 @@ button,input,select,textarea{font:inherit;color:inherit}
           text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
 .tile:hover .tile__go{color:#fff}
 
+/* ── декоративная надпись первого экрана ──────────────── */
+/* Куб занимает правую колонку, заголовок — левую, поэтому надпись живёт
+   в свободной полосе над ними и прижата к правому краю. */
+.hero-mark{
+  position:absolute;z-index:0;pointer-events:none;user-select:none;
+  top:clamp(14px,7vh,64px);right:var(--gut);left:var(--gut);
+  display:flex;justify-content:flex-end;
+  opacity:.1;
+}
+.hero-mark span{
+  font-weight:900;letter-spacing:-.05em;text-transform:uppercase;
+  font-size:clamp(40px,8.4vw,138px);line-height:.9;white-space:nowrap;
+}
+/* До 768px колонки схлопываются в одну и куб уезжает наверх,
+   поэтому надпись переносится в полосу над ним и центрируется. */
+@media (max-width:767px){
+  .hero-mark{justify-content:center;top:clamp(6px,2.4vh,26px)}
+  .hero-mark span{font-size:clamp(34px,11vw,74px)}
+}
+
+/* Заголовок первого экрана: на узких экранах длинное слово
+   «КОМПРОМИССОВ» не помещалось и обрезалось краем окна. */
+.hero-title{
+  font-size:clamp(28px,7.2vw,72px);
+  line-height:.9;
+  letter-spacing:-.05em;
+  margin:0;
+}
+@media (min-width:768px){
+  .hero-title{font-size:clamp(40px,5.4vw,72px)}
+}
+
 /* ── три ритма и подбор по бюджету ───────────────────── */
 .rhythms-sect{padding-block:clamp(44px,6vw,88px);position:relative;overflow:hidden}
 .rhythms-sect .wrap{position:relative;z-index:1}

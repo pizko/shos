@@ -379,13 +379,11 @@ def build_home():
              schema=[org_schema(CFG, u), website_schema(CFG)])
 
     body = f"""<section class="relative h-screen w-full flex items-center overflow-hidden pt-20">
-  <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none" aria-hidden="true">
-    <span class="text-[12vw] font-heavy uppercase whitespace-nowrap select-none text-center leading-none block">ТВОЙ<br>ХОД</span>
-  </div>
+  <div class="hero-mark" aria-hidden="true"><span>Твой ход</span></div>
   <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
     <div class="flex flex-col gap-6 order-2 md:order-1">
       <div class="uppercase text-sm font-bold tracking-[0.2em] text-[#999999]">{e(c['heroEyebrow'])}</div>
-      <h1 class="text-5xl md:text-7xl font-heavy uppercase leading-[0.9]">{c['heroTitle']}</h1>
+      <h1 class="hero-title font-heavy uppercase">{c['heroTitle']}</h1>
       <p class="text-lg font-light text-[#999999] max-w-md">{e(c['heroText'])}</p>
       <div class="pt-4 hero-cta">
         <a class="btn btn--grad" href="{u('catalog/')}">{e(c['heroCta'])}</a>
