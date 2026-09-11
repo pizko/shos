@@ -264,23 +264,18 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tile:hover .tile__go{color:#fff}
 
 /* ── декоративная надпись первого экрана ──────────────── */
-/* Куб занимает правую колонку, заголовок — левую, поэтому надпись живёт
-   в свободной полосе над ними и прижата к правому краю. */
+/* Как в исходном макете: две строки за содержимым, по центру по вертикали.
+   Внутри тот же контейнер, что и у контента, — левый край совпадает
+   с заголовком на любой ширине, и надпись не уезжает под витрину справа. */
 .hero-mark{
-  position:absolute;z-index:0;pointer-events:none;user-select:none;
-  top:clamp(14px,7vh,64px);right:var(--gut);left:var(--gut);
-  display:flex;justify-content:flex-end;
+  position:absolute;inset:0;z-index:0;pointer-events:none;user-select:none;
+  display:flex;align-items:center;
   opacity:.1;
 }
 .hero-mark span{
-  font-weight:900;letter-spacing:-.05em;text-transform:uppercase;
-  font-size:clamp(40px,8.4vw,138px);line-height:.9;white-space:nowrap;
-}
-/* До 768px колонки схлопываются в одну и куб уезжает наверх,
-   поэтому надпись переносится в полосу над ним и центрируется. */
-@media (max-width:767px){
-  .hero-mark{justify-content:center;top:clamp(6px,2.4vh,26px)}
-  .hero-mark span{font-size:clamp(34px,11vw,74px)}
+  display:block;
+  font-size:12vw;font-weight:900;letter-spacing:-.05em;
+  text-transform:uppercase;line-height:1;white-space:nowrap;
 }
 
 /* Заголовок первого экрана: на узких экранах длинное слово
