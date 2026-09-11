@@ -561,6 +561,22 @@
   }
 
 
+
+  /* ── реальная высота шапки ────────────────────────── */
+  /* Шапка стоит в потоке, её высота зависит от вёрстки и ширины экрана,
+     поэтому меряем и отдаём в CSS: от неё считаются высота первого экрана
+     и прилипающие фильтры с итогом корзины. Имя отличается от --hdr-h,
+     которым задаётся min-height самой шапки, иначе получится петля. */
+  var hdr = $('.hdr');
+  if (hdr) {
+    var setH = function () {
+      document.documentElement.style.setProperty('--hdr-real', hdr.offsetHeight + 'px');
+    };
+    setH();
+    window.addEventListener('resize', setH, { passive: true });
+    if (window.ResizeObserver) new ResizeObserver(setH).observe(hdr);
+  }
+
   /* ── подбор по бюджету ────────────────────────────── */
   var range = $('#budget-range');
   if (range) {

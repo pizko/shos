@@ -161,7 +161,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .catalog__grid{display:grid;grid-template-columns:250px minmax(0,1fr);gap:clamp(20px,3vw,44px);
                align-items:start}
 .catalog__main{min-width:0}
-.filters{position:sticky;top:calc(var(--hdr-h) + 40px);max-height:calc(100vh - var(--hdr-h) - 60px);
+.filters{position:sticky;top:calc(var(--hdr-real,100px) + 40px);max-height:calc(100vh - var(--hdr-real,100px) - 60px);
          display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-card);
          background:var(--surface);overflow:hidden}
 .filters__head{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
@@ -262,6 +262,17 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tile__go{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;
           text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
 .tile:hover .tile__go{color:#fff}
+
+/* ── первый экран ─────────────────────────────────────── */
+/* В исходном макете шапка была position:fixed и не занимала места в потоке,
+   поэтому секции хватало h-screen с отступом pt-20 под неё. Наша шапка
+   sticky и стоит в потоке, так что высоту считаем за вычетом её реальной
+   высоты. --hdr-real проставляет shop.js; отдельно от --hdr-h, который задаёт
+   min-height самой шапке, — иначе замер и правило зациклятся. */
+.hero{
+  min-height:calc(100svh - var(--hdr-real,100px));
+  padding-block:clamp(24px,4vh,48px);
+}
 
 /* ── декоративная надпись первого экрана ──────────────── */
 /* Как в исходном макете: две строки за содержимым, по центру по вертикали.
@@ -584,7 +595,7 @@ dialog:not([open]){display:none}
 .cline__x{background:none;border:0;cursor:pointer;color:var(--dim);font-size:12px;
           text-transform:uppercase;letter-spacing:.1em;margin-top:10px;padding:0;display:block}
 .cline__x:hover{color:var(--pink)}
-.summary{position:sticky;top:calc(var(--hdr-h) + 40px);border:1px solid var(--line);
+.summary{position:sticky;top:calc(var(--hdr-real,100px) + 40px);border:1px solid var(--line);
          border-radius:var(--r-card);background:var(--surface);padding:24px}
 .summary__ttl{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin:0 0 18px}
 .summary__row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:14px}

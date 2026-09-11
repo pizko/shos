@@ -378,7 +378,7 @@ def build_home():
              path="", og_image=img(hero_imgs[0]["image"], 1200, 630),
              schema=[org_schema(CFG, u), website_schema(CFG)])
 
-    body = f"""<section class="relative h-screen w-full flex items-center overflow-hidden pt-20">
+    body = f"""<section class="hero relative w-full flex items-center overflow-hidden">
   <div class="hero-mark" aria-hidden="true">
     <div class="container mx-auto px-6"><span>Твой<br>ход</span></div>
   </div>
