@@ -176,6 +176,10 @@
 
   document.addEventListener('keydown', function (ev) {
     if (ev.key !== 'Escape') return;
+    // Закрываем диалоги сами: полагаться на штатное поведение <dialog> не стоит,
+    // оно срабатывает не во всех окружениях.
+    var dlg = document.querySelector('dialog[open]');
+    if (dlg && dlg.close) { dlg.close(); return; }
     if (overlay && !overlay.hidden) closeSearch();
     if (menu && !menu.hidden) closeMenu();
     var f = $('#filters');
