@@ -1,0 +1,40 @@
+{
+  "_comment": "Заполните поля перед запуском. Пустые поля нигде не отображаются пользователю.",
+
+  "siteName": "ФОРМА",
+  "tagline": "Мультибрендовый магазин спортивной и lifestyle-обуви",
+  "domain": "",
+  "baseUrl": "https://pizko.github.io/shos",
+
+  "company": {
+    "companyName": "ФОРМА",
+    "legalName": "",
+    "inn": "",
+    "ogrn": "",
+    "kpp": "",
+    "legalAddress": "",
+    "actualAddress": ""
+  },
+
+  "contacts": {
+    "phone": "",
+    "email": "",
+    "wholesaleEmail": "",
+    "workHours": "Пн–Вс, 10:00–20:00 (МСК)",
+    "telegram": "",
+    "whatsapp": ""
+  },
+
+  "social": [],
+
+  "forms": {
+    "endpoint": "",
+    "_note": "URL обработчика форм (Formspree, собственный API). Если пусто — форма собирает письмо через mailto на contacts.email."
+  },
+
+  "payments": [
+    { "id": "card", "title": "Банковская карта", "note": "Visa, Mastercard, МИР", "enabled": true },
+    { "id": "sbp", "title": "СБП", "note": "Оплата по QR-коду через приложение банка", "enabled": true },
+    { "id": "cash", "title": "При получении", "note": "Наличными или картой курьеру", "enabled": true }
+  ]
+}

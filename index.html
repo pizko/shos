@@ -1,341 +1,400 @@
-<!DOCTYPE html><html lang="ru" class="scroll-smooth"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ФОРМА — Магазин Кроссовок</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  
-  
-  
-<meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/refine.css"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://example.com/#website", "url": "https://example.com/", "name": "ФОРМА", "inLanguage": "ru-RU"}, {"@type": "WebPage", "@id": "https://example.com/index.html#webpage", "url": "https://example.com/index.html", "name": "ФОРМА", "inLanguage": "ru-RU", "isPartOf": {"@id": "https://example.com/#website"}}]}</script><script defer src="assets/products.js"></script><script defer src="assets/app.js"></script><script defer src="assets/refine.js"></script></head>
-<body data-page="index">
-  <div class="min-h-screen bg-[#050505] text-white flex flex-col relative" data-sd-id="1">
-    
-    <!-- Fixed Nav -->
-    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-8 mix-blend-difference pointer-events-none flex justify-between items-center" data-sd-id="2">
-      <div class="flex items-center gap-3 pointer-events-auto" data-sd-id="3">
-        <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse" data-sd-id="4"></div>
-        <a href="#" id="logo-link" class="text-xl font-bold uppercase tracking-widest" data-sd-id="5">ФОРМА</a>
-      </div>
-      <div class="hidden md:flex gap-8 uppercase text-sm font-bold tracking-widest pointer-events-auto" data-sd-id="6">
-        <a href="catalog.html" class="hover:text-[#999999] transition-colors" data-sd-id="7" id="store-link-2">Каталог</a>
-        <a href="#collections" class="hover:text-[#999999] transition-colors" data-sd-id="8" id="store-link-3">Коллекции</a>
-        <a href="#budget" class="hover:text-[#999999] transition-colors" data-sd-id="9" id="store-link-4">Подбор</a>
-      </div>
-      <div class="flex gap-6 pointer-events-auto items-center" data-sd-id="10">
-        <button id="search-btn" class="hover:text-[#999999] transition-colors" aria-label="Поиск" data-sd-id="11">
-          <iconify-icon icon="lucide:search" class="text-2xl"></iconify-icon>
-        </button>
-        <a href="cart.html" id="cart-btn" class="hover:text-[#999999] transition-colors font-bold uppercase tracking-widest flex items-center gap-2" data-sd-id="12">
-          Корзина (<span id="cart-count" data-sd-id="13">0</span>)
-        </a>
-      </div>
-    </nav><main>
-
-    <!-- Hero Section -->
-    <section class="relative h-screen w-full flex items-center overflow-hidden pt-20" data-sd-id="14">
-      <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none" data-sd-id="15">
-        <h1 class="text-[12vw] font-heavy uppercase whitespace-nowrap select-none text-center leading-none" data-sd-id="16">
-          ТВОЙ<br>ХОД
-        </h1>
-      </div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ФОРМА — мультибрендовый магазин кроссовок Nike, New Balance, Puma, Vans</title>
+<meta name="description" content="Кроссовки для бега, тренировок и города. Доставка по России, возврат 14 дней, проверка каждой пары перед отправкой.">
+<link rel="canonical" href="https://pizko.github.io/shos/">
+<meta name="theme-color" content="#050505">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ФОРМА">
+<meta property="og:title" content="ФОРМА — мультибрендовый магазин кроссовок Nike, New Balance, Puma, Vans">
+<meta property="og:description" content="Кроссовки для бега, тренировок и города. Доставка по России, возврат 14 дней, проверка каждой пары перед отправкой.">
+<meta property="og:url" content="https://pizko.github.io/shos/">
+<meta property="og:image" content="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="style" href="assets/styles.css?v=67690b4e">
+<link rel="stylesheet" href="assets/styles.css?v=67690b4e">
+<link rel="stylesheet" href="assets/refine.css?v=21693ee4">
+<link rel="stylesheet" href="assets/shop.css?v=a9eb932d">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ФОРМА","url":"https://pizko.github.io/shos/","logo":"https://pizko.github.io/shos/assets/favicon.svg"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ФОРМА","url":"https://pizko.github.io/shos/","inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://pizko.github.io/shos/search/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+</head>
+<body class="page-home" data-base="">
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="hdr" id="site-header">
+  <div class="hdr-top">
+    <div class="hdr-top__in">
+      <span>Доставка по России · возврат 14 дней</span>
       
-      <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full" data-sd-id="17">
-        <div class="flex flex-col gap-6 order-2 md:order-1" data-sd-id="18">
-          <div class="uppercase text-sm font-bold tracking-[0.2em] text-[#999999]" data-sd-id="19">
-            КРОССОВКИ / В ТВОЁМ РИТМЕ
-          </div>
-          <h2 class="text-5xl md:text-7xl font-heavy uppercase leading-[0.9]" data-sd-id="20">
-            Движение без<br>компромиссов
-          </h2>
-          <p class="text-lg font-light text-[#999999] max-w-md" data-sd-id="21">
-            Концептуальная коллекция обуви для города и спорта. Найди свою идеальную пару.
-          </p>
-          <div class="pt-4" data-sd-id="22">
-            <a href="catalog.html" class="inline-flex items-center justify-center px-8 py-4 accent-gradient rounded-none font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform duration-300 text-white" data-sd-id="23" id="store-link-5">
-              Смотреть каталог
-            </a>
-          </div>
-        </div>
-        
-        <div class="order-1 md:order-2 h-[50vh] flex items-center justify-center" data-sd-id="24">
-          <div class="scene" data-sd-id="25">
-            <div class="cube" data-sd-id="26">
-              <div class="cube-face face-front" data-sd-id="27">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Красные кроссовки" data-sd-id="28">
-              </div>
-              <div class="cube-face face-back" data-sd-id="29">
-                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Белые кроссовки" data-sd-id="30">
-              </div>
-              <div class="cube-face face-top md:face-top face-right" data-sd-id="31">
-                <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Спортивные кроссовки" data-sd-id="32">
-              </div>
-              <div class="cube-face face-bottom md:face-bottom face-left" data-sd-id="33">
-                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Городские кроссовки" data-sd-id="34">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Marquee -->
-    <div class="border-y border-white/10 py-4 bg-[#111111] overflow-hidden flex items-center" data-sd-id="35">
-      <div class="marquee-container w-full" data-sd-id="36">
-        <div class="marquee-content text-2xl md:text-4xl font-heavy uppercase tracking-widest text-[#999999]" data-sd-id="37">
-          ГОРОД • БЕГ • КАЖДЫЙ ДЕНЬ • ГОРОД • БЕГ • КАЖДЫЙ ДЕНЬ • ГОРОД • БЕГ • КАЖДЫЙ ДЕНЬ • ГОРОД • БЕГ • КАЖДЫЙ ДЕНЬ •
-        </div>
-      </div>
     </div>
-
-    <!-- Collections Bento -->
-    <section id="collections" class="py-24 px-6 md:px-12 bg-[#050505]" data-sd-id="38">
-      <h2 class="text-[6vw] font-heavy uppercase mb-12 text-center" data-sd-id="39">В ФОКУСЕ</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto" data-sd-id="40">
-        
-        <div class="md:col-span-2 glass-border bg-[#111111] rounded-2xl overflow-hidden group product-card aspect-video relative" data-sd-id="41">
-          <div class="absolute top-0 left-0 w-full p-4 flex gap-2 z-20 bg-gradient-to-b from-black/50 to-transparent" data-sd-id="42">
-            <div class="w-3 h-3 rounded-full bg-red-500" data-sd-id="43"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500" data-sd-id="44"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500" data-sd-id="45"></div>
-          </div>
-          <div class="absolute bottom-8 left-8 z-20" data-sd-id="46">
-            <h3 class="text-4xl font-heavy uppercase" data-sd-id="47">Урбан стиль</h3>
-            <p class="text-[#999999] uppercase tracking-[0.2em] font-bold mt-2" data-sd-id="48">Новая коллекция</p>
-          </div>
-          <div class="absolute inset-0 product-img-wrapper" data-sd-id="49">
-            <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Городская коллекция" class="w-full h-full object-cover" data-sd-id="50">
-          </div>
-          <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" data-sd-id="51"></div>
-        </div>
-
-        <div class="glass-border bg-[#111111] rounded-2xl overflow-hidden group product-card aspect-[4/3] relative flex items-end p-8" data-sd-id="52">
-           <div class="absolute inset-0 product-img-wrapper z-0" data-sd-id="53">
-            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Бег" class="w-full h-full object-cover" data-sd-id="54">
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" data-sd-id="55"></div>
-          <div class="relative z-20" data-sd-id="56">
-            <h3 class="text-3xl font-heavy uppercase" data-sd-id="57">Для бега</h3>
-            <p class="text-[#999999] uppercase tracking-[0.2em] font-bold mt-1" data-sd-id="58">Скорость и комфорт</p>
-          </div>
-        </div>
-
-        <div class="glass-border bg-[#111111] rounded-2xl overflow-hidden group product-card aspect-[4/3] relative flex items-end p-8" data-sd-id="59">
-           <div class="absolute inset-0 product-img-wrapper z-0" data-sd-id="60">
-            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Каждый день" class="w-full h-full object-cover" data-sd-id="61">
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" data-sd-id="62"></div>
-          <div class="relative z-20" data-sd-id="63">
-            <h3 class="text-3xl font-heavy uppercase" data-sd-id="64">Каждый день</h3>
-            <p class="text-[#999999] uppercase tracking-[0.2em] font-bold mt-1" data-sd-id="65">База твоего гардероба</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Catalog Grid -->
-    <section id="catalog" class="py-24 px-6 md:px-12 bg-[#050505]" data-sd-id="66">
-      <div class="max-w-7xl mx-auto" data-sd-id="67">
-        <h2 class="text-[6vw] md:text-[5vw] font-heavy uppercase mb-8 text-center" data-sd-id="68">ВЫБИРАЙ СВОЮ ПАРУ</h2>
-        
-        <div class="flex justify-center gap-4 mb-12 flex-wrap" data-sd-id="69">
-          <button class="px-6 py-2 glass-border rounded-full text-sm font-bold uppercase tracking-widest bg-white text-black hover:bg-gray-200 transition-colors" data-sd-id="70">Все</button>
-          <button class="px-6 py-2 glass-border rounded-full text-sm font-bold uppercase tracking-widest text-[#999999] hover:text-white transition-colors" data-sd-id="71">Город</button>
-          <button class="px-6 py-2 glass-border rounded-full text-sm font-bold uppercase tracking-widest text-[#999999] hover:text-white transition-colors" data-sd-id="72">Бег</button>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-sd-id="73">
-          <!-- Product 1 -->
-          <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="74">
-            <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="75">
-              <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Городские кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="76">
-            </div>
-            <div data-sd-id="77">
-              <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="78">Город</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="79"><a id="home-product-gorod" href="product.html">ГОРОД 01</a></h4>
-              <p class="text-xl font-light mt-1" data-sd-id="80">12 500 ₽</p>
-            </div>
-            <div class="mt-auto" data-sd-id="81">
-              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="82"><option value="">Размер</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option></select>
-              <button class="w-full py-3 accent-gradient font-bold uppercase tracking-widest text-sm hover:scale-[1.02] transition-transform" data-sd-id="88">В корзину</button>
-            </div>
-          </div>
-
-           <!-- Product 2 -->
-           <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="89">
-            <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="90">
-              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Красные кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="91">
-            </div>
-            <div data-sd-id="92">
-              <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="93">Бег</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="94">ИМПУЛЬС</h4>
-              <p class="text-xl font-light mt-1" data-sd-id="95">14 900 ₽</p>
-            </div>
-            <div class="mt-auto" data-sd-id="96">
-               <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="97"><option value="">Размер</option><option value="39">39</option><option value="40">40</option><option value="42">42</option></select>
-              <button class="w-full py-3 glass-border font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors" data-sd-id="102">В корзину</button>
-            </div>
-          </div>
-
-          <!-- Product 3 -->
-          <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="103">
-            <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="104">
-              <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Светлые кроссовки" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="105">
-            </div>
-            <div data-sd-id="106">
-              <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="107">На каждый день</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="108">РИТМ</h4>
-              <p class="text-xl font-light mt-1" data-sd-id="109">8 900 ₽</p>
-            </div>
-            <div class="mt-auto" data-sd-id="110">
-              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="111"><option value="">Размер</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option></select>
-              <button class="w-full py-3 glass-border font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors" data-sd-id="117">В корзину</button>
-            </div>
-          </div>
-
-          <!-- Product 4 -->
-          <div class="glass-border bg-[#111111] p-6 flex flex-col gap-4" data-sd-id="118">
-            <div class="aspect-square bg-[#0a0a0a] rounded-lg overflow-hidden flex items-center justify-center p-4" data-sd-id="119">
-              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="Кроссовки для города" class="w-full h-full object-contain filter grayscale hover:grayscale-0 transition duration-500" data-sd-id="120">
-            </div>
-            <div data-sd-id="121">
-              <p class="text-xs text-[#999999] uppercase tracking-widest font-bold mb-1" data-sd-id="122">Город</p>
-              <h4 class="text-xl font-bold uppercase" data-sd-id="123">МАРШРУТ</h4>
-              <p class="text-xl font-light mt-1" data-sd-id="124">16 200 ₽</p>
-            </div>
-            <div class="mt-auto" data-sd-id="125">
-              <select class="w-full bg-[#050505] border border-white/10 text-white p-3 mb-4 outline-none font-bold" aria-label="Выберите размер" data-sd-id="126"><option value="">Размер</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option></select>
-              <button class="w-full py-3 glass-border font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors" data-sd-id="132">В корзину</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Functional Styles Section -->
-    <section class="glow-section py-32 px-6 overflow-hidden z-10" data-sd-id="133">
-      <div class="max-w-7xl mx-auto relative z-10" data-sd-id="134">
-        <h2 class="text-center text-[5vw] font-heavy uppercase mb-16" data-sd-id="135">ТРИ РИТМА</h2>
-        
-        <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4" data-sd-id="136">
-          <!-- Left -->
-          <div class="glass-border bg-white/5 p-8 rounded-3xl w-full md:w-1/3 flex flex-col items-center text-center opacity-80" data-sd-id="137">
-            <h3 class="text-2xl font-bold uppercase mb-4" data-sd-id="138">На каждый день</h3>
-            <p class="text-[#999999] font-light mb-8" data-sd-id="139">Базовые силуэты и комфорт на весь день.</p>
-            <a href="#catalog" class="uppercase tracking-widest font-bold text-sm border-b border-white pb-1 hover:text-[#999999] hover:border-[#999999] transition-colors" data-sd-id="140" id="store-link-6">Смотреть выборку</a>
-          </div>
-          
-          <!-- Center (Highlighted) -->
-          <div class="bg-white text-black p-12 rounded-3xl w-full md:w-1/3 scale-100 md:scale-105  z-20 flex flex-col items-center text-center" data-sd-id="141">
-            <h3 class="text-3xl font-heavy uppercase mb-4" data-sd-id="142">Для города</h3>
-            <p class="text-gray-600 font-light mb-8" data-sd-id="143">Выразительные силуэты для городских маршрутов.</p>
-            <a href="#catalog" class="uppercase tracking-widest font-bold text-sm bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors" data-sd-id="144" id="store-link-7">Исследовать</a>
-          </div>
-
-          <!-- Right -->
-          <div class="glass-border bg-white/5 p-8 rounded-3xl w-full md:w-1/3 flex flex-col items-center text-center opacity-80" data-sd-id="145">
-            <h3 class="text-2xl font-bold uppercase mb-4" data-sd-id="146">Для движения</h3>
-            <p class="text-[#999999] font-light mb-8" data-sd-id="147">Спортивные силуэты для твоего ритма.</p>
-             <a href="#catalog" class="uppercase tracking-widest font-bold text-sm border-b border-white pb-1 hover:text-[#999999] hover:border-[#999999] transition-colors" data-sd-id="148" id="store-link-8">Найти пару</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Budget Selector -->
-    <section id="budget" class="py-20 px-6 bg-[#0B0216] relative z-10" data-sd-id="149">
-      <div class="max-w-4xl mx-auto bg-[#1A0B2E] rounded-[32px] p-8 md:p-12 glass-border" data-sd-id="150">
-        <h3 class="text-3xl font-heavy uppercase text-center mb-8" data-sd-id="151">ПОДБОР ПО БЮДЖЕТУ</h3>
-        
-        <div class="mb-8" data-sd-id="152">
-          <div class="flex justify-between text-lg font-bold mb-4 uppercase tracking-widest" data-sd-id="153">
-            <span data-sd-id="154">До: <span id="budget-val" data-sd-id="155">15 000</span> ₽</span>
-            <span class="text-[#999999]" data-sd-id="156">Моделей: <span id="pairs-count" data-sd-id="157">3</span></span>
-          </div>
-          <input type="range" min="5000" max="30000" step="1000" value="15000" class="w-full" id="budget-slider" aria-label="Бюджет" data-sd-id="158">
-          <div class="flex justify-between text-xs text-[#999999] mt-2 font-bold" data-sd-id="159">
-            <span data-sd-id="160">5 000 ₽</span>
-            <span data-sd-id="161">30 000 ₽</span>
-          </div>
-        </div>
-        
-        <div class="text-center" data-sd-id="162">
-          <button class="accent-gradient px-12 py-4 rounded-full font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform" data-sd-id="163">
-            Показать варианты
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Editorial Footer -->
-    </main><footer class="bg-[#050505] pt-32 pb-12 px-6 border-t border-white/10 relative z-10" data-sd-id="164">
-      <div class="max-w-7xl mx-auto" data-sd-id="165">
-        <h2 class="text-[15vw] font-heavy uppercase leading-[0.8] text-center md:text-left mb-16" data-sd-id="166">
-          ТВОЙ<br>ХОД.
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16" data-sd-id="167">
-          <div class="col-span-1 md:col-span-2" data-sd-id="168">
-            <p class="text-xl font-light text-[#999999] max-w-sm" data-sd-id="169">
-              Магазин концептуальной обуви. Выбор тех, кто задает свой собственный ритм.
-            </p>
-          </div>
-          <div data-sd-id="170">
-            <h4 class="font-bold uppercase tracking-widest mb-6" data-sd-id="171">Навигация</h4>
-            <ul class="flex flex-col gap-4 text-[#999999] font-light" data-sd-id="172">
-              <li data-sd-id="173"><a href="catalog.html" class="hover:text-white transition-colors" data-sd-id="174" id="store-link-9">Каталог</a></li>
-              <li data-sd-id="175"><a href="#collections" class="hover:text-white transition-colors" data-sd-id="176" id="store-link-10">Коллекции</a></li>
-              <li data-sd-id="177"><a href="#budget" class="hover:text-white transition-colors" data-sd-id="178" id="store-link-11">Подбор</a></li>
-            </ul>
-          </div>
-           <div data-sd-id="179">
-            <h4 class="font-bold uppercase tracking-widest mb-6" data-sd-id="180">Информация</h4>
-            <ul class="flex flex-col gap-4 text-[#999999] font-light" data-sd-id="181">
-              <li data-sd-id="182"><a href="#concept-note" class="hover:text-white transition-colors" data-sd-id="183" id="store-link-12">О концепте</a></li>
-              <li data-sd-id="184"><a href="#concept-note" class="hover:text-white transition-colors" data-sd-id="185" id="store-link-13">О товарах</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#999999] font-light" data-sd-id="186">
-          <p data-sd-id="187">ФОРМА — концепт магазина</p>
-          <p class="text-center md:text-right p-4 bg-[#111111] glass-border rounded-lg" id="concept-note" data-sd-id="188">
-            <strong class="text-white uppercase tracking-wider text-xs">Дизайн-концепт.</strong><br>Товары и цены приведены исключительно для примера.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Shopping Cart Sidebar (Hidden by default) -->
-    <div id="cart-overlay" class="fixed inset-0 bg-black/80 z-[60] backdrop-blur-sm opacity-0 invisible cart-overlay" data-sd-id="189">
-      <div id="cart-panel" class="absolute top-0 right-0 w-full md:w-[450px] h-full bg-[#111111] glass-border translate-x-full cart-panel flex flex-col" data-sd-id="190">
-        <div class="p-6 border-b border-white/10 flex justify-between items-center" data-sd-id="191">
-          <h3 class="text-2xl font-heavy uppercase" data-sd-id="192">Корзина</h3>
-          <button id="close-cart" class="text-[#999999] hover:text-white transition-colors p-2" aria-label="Закрыть корзину" data-sd-id="193">
-             <iconify-icon icon="lucide:x" class="text-2xl"></iconify-icon>
-          </button>
-        </div>
-        
-        <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6" id="cart-items-container" data-sd-id="194">
-          <!-- Empty state -->
-          <div class="h-full flex flex-col items-center justify-center text-center opacity-50" data-sd-id="195">
-             <iconify-icon icon="lucide:shopping-bag" class="text-6xl mb-4"></iconify-icon>
-             <p class="uppercase tracking-widest font-bold" data-sd-id="196">Корзина пуста</p>
-          </div>
-        </div>
-        
-        <div class="p-6 border-t border-white/10 bg-[#0a0a0a]" data-sd-id="197">
-          <div class="flex justify-between items-center mb-6" data-sd-id="198">
-            <span class="uppercase tracking-widest font-bold text-[#999999]" data-sd-id="199">Итого:</span>
-            <span class="text-2xl font-heavy" id="cart-total" data-sd-id="200">0 ₽</span>
-          </div>
-          <button class="w-full py-4 accent-gradient font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform" aria-label="Продолжить выбор" data-sd-id="201">
-            Продолжить выбор
-          </button>
-        </div>
-      </div>
-    </div>
-
   </div>
+  <div class="hdr-main">
+    <button class="hdr-burger" type="button" data-open-menu aria-label="Открыть меню" aria-expanded="false"><svg class="ico " width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="hdr-logo" href="./"><span class="hdr-logo__dot" aria-hidden="true"></span>ФОРМА</a>
+    <nav class="hdr-nav" aria-label="Основное меню"><a href="catalog/mens/">Мужское</a><a href="catalog/womens/">Женское</a><a href="brands/">Бренды</a><a href="catalog/running/">Бег</a><a href="catalog/lifestyle/">Lifestyle</a><a href="catalog/training/">Training</a><a href="catalog/new/">Новинки</a><a href="catalog/sale/">Sale</a><a href="about/">О нас</a></nav>
+    <div class="hdr-actions">
+      <button class="hdr-btn" type="button" data-open-search aria-label="Поиск"><svg class="ico " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm5.5 12.5L21 21"/></svg></button>
+      <a class="hdr-btn" href="wishlist/" aria-label="Избранное"><svg class="ico " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg><span class="hdr-badge" data-wish-count hidden>0</span></a>
+      <a class="hdr-btn hdr-btn--acct" href="account/" aria-label="Аккаунт"><svg class="ico " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></svg></a>
+      <a class="hdr-btn hdr-btn--cart" href="cart/" aria-label="Корзина"><svg class="ico " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1.1 12.2A2 2 0 0 1 14.9 22H9.1a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/></svg><span class="hdr-badge" data-cart-count hidden>0</span></a>
+    </div>
+  </div>
+</header>
 
-  
-</body></html>
+<div class="drawer" id="menu-drawer" hidden>
+  <div class="drawer__scrim" data-close-menu></div>
+  <nav class="drawer__panel" aria-label="Мобильное меню">
+    <div class="drawer__head">
+      <span class="drawer__title">Меню</span>
+      <button class="hdr-btn" type="button" data-close-menu aria-label="Закрыть меню"><svg class="ico " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="drawer__links"><a href="catalog/mens/">Мужское <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="catalog/womens/">Женское <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="brands/">Бренды <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="catalog/running/">Бег <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="catalog/lifestyle/">Lifestyle <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="catalog/training/">Training <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="catalog/new/">Новинки <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="catalog/sale/">Sale <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a><a href="about/">О нас <svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></div>
+    <div class="drawer__foot">
+      <a href="account/">Аккаунт</a>
+      <a href="delivery/">Доставка</a>
+      <a href="returns/">Возврат</a>
+      <a href="payment/">Оплата</a>
+      <a href="brand-partnerships/">Brand Partnerships</a>
+    </div>
+  </nav>
+</div>
+
+<div class="srch" id="search-overlay" hidden>
+  <div class="srch__scrim" data-close-search></div>
+  <div class="srch__panel" role="dialog" aria-modal="true" aria-label="Поиск по каталогу">
+    <form class="srch__form" action="search/" method="get" role="search">
+      <svg class="ico srch__ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm5.5 12.5L21 21"/></svg>
+      <input class="srch__input" type="search" name="q" id="site-search" autocomplete="off"
+             placeholder="Бренд, модель или артикул" aria-label="Поисковый запрос">
+      <button class="hdr-btn" type="button" data-close-search aria-label="Закрыть поиск"><svg class="ico " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </form>
+    <div class="srch__hint">Например: Air Force, New Balance, FRM-NK-1041</div>
+    <div class="srch__out" id="search-suggest" role="listbox" aria-label="Подсказки"></div>
+  </div>
+</div>
+<main id="main">
+<section class="relative h-screen w-full flex items-center overflow-hidden pt-20">
+  <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none" aria-hidden="true">
+    <span class="text-[12vw] font-heavy uppercase whitespace-nowrap select-none text-center leading-none block">ТВОЙ<br>ХОД</span>
+  </div>
+  <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
+    <div class="flex flex-col gap-6 order-2 md:order-1">
+      <div class="uppercase text-sm font-bold tracking-[0.2em] text-[#999999]">Мультибренд / обувь и одежда</div>
+      <h1 class="text-5xl md:text-7xl font-heavy uppercase leading-[0.9]">Движение без<br>компромиссов</h1>
+      <p class="text-lg font-light text-[#999999] max-w-md">Кроссовки Nike, New Balance, Puma и Vans для бега, зала и города. Отбираем модели по посадке и материалам, а не по громкости релиза.</p>
+      <div class="pt-4 hero-cta">
+        <a class="btn btn--grad" href="catalog/">Смотреть каталог</a>
+        <a class="btn btn--ghost" href="catalog/new/">Новинки</a>
+      </div>
+    </div>
+    <div class="order-1 md:order-2 h-[50vh] flex items-center justify-center">
+      <div class="scene"><div class="cube"><div class="cube-face face-front"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=700&h=700&q=80" alt="Nike Air Force 1 Shadow" width="700" height="700" fetchpriority="high"></div><div class="cube-face face-back"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&h=700&q=80" alt="Nike Air Jordan 1 Mid" width="700" height="700" loading="lazy"></div><div class="cube-face face-top"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&h=700&q=80" alt="Nike Free RN Flyknit" width="700" height="700" loading="lazy"></div><div class="cube-face face-bottom"><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&h=700&q=80" alt="New Balance 247" width="700" height="700" loading="lazy"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="border-y border-white/10 py-4 bg-[#111111] overflow-hidden flex items-center" aria-hidden="true">
+  <div class="marquee-container w-full"><div class="marquee-content text-2xl md:text-4xl font-heavy uppercase tracking-widest text-[#999999]">
+    NIKE • NEW BALANCE • PUMA • VANS • NIKE • NEW BALANCE • PUMA • VANS • NIKE • NEW BALANCE • PUMA • VANS •
+  </div></div>
+</div>
+
+<section class="wrap sect">
+  <div class="sect__head"><h2 class="sect__ttl">Новинки</h2><a class="linkish" href="catalog/new/">Все новинки</a></div>
+  <div class="pgrid" id="product-grid"><article class="pcard"
+  data-product="nike-air-jordan-1-mid-black-red" data-brand="nike" data-cat="lifestyle"
+  data-gender="men" data-color="black" data-price="21990"
+  data-stock="8" data-new="1" data-sale="0"
+  data-purpose="Повседневная носка" data-released="2026-09-02"
+  data-sizes="40,41,42,43"
+  data-name="Nike Air Jordan 1 Mid" data-sku="FRM-NK-1156">
+  <a class="pcard__media" href="product/nike-air-jordan-1-mid-black-red/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--new">Новинка</span></div>
+    <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-air-jordan-1-mid-black-red"
+          aria-label="Добавить Nike Air Jordan 1 Mid в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-air-jordan-1-mid-black-red/">Air Jordan 1 Mid</a></h3>
+    <span class="pcard__color">Black / Gym Red / White</span>
+    <div class="pcard__prices"><span class="pcard__price">21 990 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 40 41 42 43</div>
+  </div>
+</article><article class="pcard"
+  data-product="puma-court-classic-white" data-brand="puma" data-cat="lifestyle"
+  data-gender="unisex" data-color="white" data-price="8490"
+  data-stock="25" data-new="1" data-sale="0"
+  data-purpose="Повседневная носка" data-released="2026-08-30"
+  data-sizes="38,39,40,41,42,43,44"
+  data-name="Puma Court Classic" data-sku="FRM-PM-5012">
+  <a class="pcard__media" href="product/puma-court-classic-white/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--new">Новинка</span></div>
+    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="puma-court-classic-white"
+          aria-label="Добавить Puma Court Classic в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Puma</span>
+    <h3 class="pcard__name"><a href="product/puma-court-classic-white/">Court Classic</a></h3>
+    <span class="pcard__color">Puma White</span>
+    <div class="pcard__prices"><span class="pcard__price">8 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 38 39 40 41 42 43 44</div>
+  </div>
+</article><article class="pcard"
+  data-product="nike-air-force-1-07-lv8-wheat" data-brand="nike" data-cat="lifestyle"
+  data-gender="men" data-color="brown" data-price="13490"
+  data-stock="19" data-new="1" data-sale="0"
+  data-purpose="Повседневная носка" data-released="2026-08-28"
+  data-sizes="40,41,42,42.5,43,45"
+  data-name="Nike Air Force 1 &#x27;07 LV8" data-sku="FRM-NK-1132">
+  <a class="pcard__media" href="product/nike-air-force-1-07-lv8-wheat/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--new">Новинка</span></div>
+    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-air-force-1-07-lv8-wheat"
+          aria-label="Добавить Nike Air Force 1 &#x27;07 LV8 в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-air-force-1-07-lv8-wheat/">Air Force 1 &#x27;07 LV8</a></h3>
+    <span class="pcard__color">Wheat / Sail</span>
+    <div class="pcard__prices"><span class="pcard__price">13 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 40 41 42 42.5 43 45</div>
+  </div>
+</article><article class="pcard"
+  data-product="nike-superrep-go-volt" data-brand="nike" data-cat="training"
+  data-gender="unisex" data-color="green" data-price="10490"
+  data-stock="16" data-new="1" data-sale="0"
+  data-purpose="Зал и функциональный тренинг" data-released="2026-08-15"
+  data-sizes="38,39,40,41,42,43,44"
+  data-name="Nike SuperRep Go" data-sku="FRM-NK-3010">
+  <a class="pcard__media" href="product/nike-superrep-go-volt/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--new">Новинка</span></div>
+    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-superrep-go-volt"
+          aria-label="Добавить Nike SuperRep Go в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-superrep-go-volt/">SuperRep Go</a></h3>
+    <span class="pcard__color">Volt / Black</span>
+    <div class="pcard__prices"><span class="pcard__price">10 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 38 39 40 41 42 43 44</div>
+  </div>
+</article></div>
+</section>
+
+<section class="wrap sect">
+  <div class="sect__head"><h2 class="sect__ttl">Категории</h2></div>
+  <div class="tiles"><a class="tile" href="catalog/mens/"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=760&h=900&q=80" alt="" width="760" height="900" loading="lazy"><span class="tile__t">Мужское</span><span class="tile__go">Смотреть<svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></a><a class="tile" href="catalog/womens/"><img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=760&h=900&q=80" alt="" width="760" height="900" loading="lazy"><span class="tile__t">Женское</span><span class="tile__go">Смотреть<svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></a><a class="tile" href="catalog/running/"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=760&h=900&q=80" alt="" width="760" height="900" loading="lazy"><span class="tile__t">Бег</span><span class="tile__go">Смотреть<svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></a><a class="tile" href="catalog/lifestyle/"><img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=760&h=900&q=80" alt="" width="760" height="900" loading="lazy"><span class="tile__t">Lifestyle</span><span class="tile__go">Смотреть<svg class="ico " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></span></a></div>
+</section>
+
+<section class="wrap sect">
+  <div class="sect__head"><h2 class="sect__ttl">Популярное</h2><a class="linkish" href="catalog/">Весь каталог</a></div>
+  <div class="pgrid" id="product-grid"><article class="pcard"
+  data-product="nike-air-force-1-07-lv8-wheat" data-brand="nike" data-cat="lifestyle"
+  data-gender="men" data-color="brown" data-price="13490"
+  data-stock="19" data-new="1" data-sale="0"
+  data-purpose="Повседневная носка" data-released="2026-08-28"
+  data-sizes="40,41,42,42.5,43,45"
+  data-name="Nike Air Force 1 &#x27;07 LV8" data-sku="FRM-NK-1132">
+  <a class="pcard__media" href="product/nike-air-force-1-07-lv8-wheat/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--new">Новинка</span></div>
+    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-air-force-1-07-lv8-wheat"
+          aria-label="Добавить Nike Air Force 1 &#x27;07 LV8 в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-air-force-1-07-lv8-wheat/">Air Force 1 &#x27;07 LV8</a></h3>
+    <span class="pcard__color">Wheat / Sail</span>
+    <div class="pcard__prices"><span class="pcard__price">13 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 40 41 42 42.5 43 45</div>
+  </div>
+</article><article class="pcard"
+  data-product="nike-free-rn-5-black-volt" data-brand="nike" data-cat="running"
+  data-gender="unisex" data-color="black" data-price="12990"
+  data-stock="18" data-new="0" data-sale="0"
+  data-purpose="Бег по асфальту" data-released="2026-02-05"
+  data-sizes="38,39,40,41,42,43"
+  data-name="Nike Free RN 5.0" data-sku="FRM-NK-2043">
+  <a class="pcard__media" href="product/nike-free-rn-5-black-volt/" tabindex="-1" aria-hidden="true">
+    
+    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-free-rn-5-black-volt"
+          aria-label="Добавить Nike Free RN 5.0 в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-free-rn-5-black-volt/">Free RN 5.0</a></h3>
+    <span class="pcard__color">Black / Volt</span>
+    <div class="pcard__prices"><span class="pcard__price">12 990 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 38 39 40 41 42 43</div>
+  </div>
+</article><article class="pcard"
+  data-product="new-balance-x90-pink-grey" data-brand="new-balance" data-cat="lifestyle"
+  data-gender="women" data-color="pink" data-price="11490"
+  data-stock="12" data-new="0" data-sale="0"
+  data-purpose="Повседневная носка" data-released="2026-05-22"
+  data-sizes="36,37,37.5,38,39"
+  data-name="New Balance X-90" data-sku="FRM-NB-4021">
+  <a class="pcard__media" href="product/new-balance-x90-pink-grey/" tabindex="-1" aria-hidden="true">
+    
+    <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="new-balance-x90-pink-grey"
+          aria-label="Добавить New Balance X-90 в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">New Balance</span>
+    <h3 class="pcard__name"><a href="product/new-balance-x90-pink-grey/">X-90</a></h3>
+    <span class="pcard__color">Pink / Light Grey</span>
+    <div class="pcard__prices"><span class="pcard__price">11 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 36 37 37.5 38 39</div>
+  </div>
+</article><article class="pcard"
+  data-product="puma-court-classic-white" data-brand="puma" data-cat="lifestyle"
+  data-gender="unisex" data-color="white" data-price="8490"
+  data-stock="25" data-new="1" data-sale="0"
+  data-purpose="Повседневная носка" data-released="2026-08-30"
+  data-sizes="38,39,40,41,42,43,44"
+  data-name="Puma Court Classic" data-sku="FRM-PM-5012">
+  <a class="pcard__media" href="product/puma-court-classic-white/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--new">Новинка</span></div>
+    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="puma-court-classic-white"
+          aria-label="Добавить Puma Court Classic в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Puma</span>
+    <h3 class="pcard__name"><a href="product/puma-court-classic-white/">Court Classic</a></h3>
+    <span class="pcard__color">Puma White</span>
+    <div class="pcard__prices"><span class="pcard__price">8 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 38 39 40 41 42 43 44</div>
+  </div>
+</article></div>
+</section>
+
+<section class="wrap sect">
+  <div class="sect__head"><h2 class="sect__ttl">Sale</h2><a class="linkish" href="catalog/sale/">Все скидки</a></div>
+  <div class="pgrid" id="product-grid"><article class="pcard"
+  data-product="nike-free-rn-flyknit-red" data-brand="nike" data-cat="running"
+  data-gender="men" data-color="red" data-price="11990"
+  data-stock="13" data-new="0" data-sale="20"
+  data-purpose="Бег по асфальту" data-released="2025-11-14"
+  data-sizes="40,41,42,43,44"
+  data-name="Nike Free RN Flyknit" data-sku="FRM-NK-2014">
+  <a class="pcard__media" href="product/nike-free-rn-flyknit-red/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--sale">−20%</span></div>
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-free-rn-flyknit-red"
+          aria-label="Добавить Nike Free RN Flyknit в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-free-rn-flyknit-red/">Free RN Flyknit</a></h3>
+    <span class="pcard__color">University Red / Bright Crimson</span>
+    <div class="pcard__prices"><span class="pcard__price">11 990 ₽</span><span class="pcard__old">14 990 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 40 41 42 43 44</div>
+  </div>
+</article><article class="pcard"
+  data-product="new-balance-247-olive" data-brand="new-balance" data-cat="lifestyle"
+  data-gender="men" data-color="green" data-price="9990"
+  data-stock="14" data-new="0" data-sale="20"
+  data-purpose="Повседневная носка" data-released="2025-12-03"
+  data-sizes="41,42,43,44,45"
+  data-name="New Balance 247" data-sku="FRM-NB-4055">
+  <a class="pcard__media" href="product/new-balance-247-olive/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--sale">−20%</span></div>
+    <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="new-balance-247-olive"
+          aria-label="Добавить New Balance 247 в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">New Balance</span>
+    <h3 class="pcard__name"><a href="product/new-balance-247-olive/">247</a></h3>
+    <span class="pcard__color">Olive / White</span>
+    <div class="pcard__prices"><span class="pcard__price">9 990 ₽</span><span class="pcard__old">12 490 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 41 42 43 44 45</div>
+  </div>
+</article><article class="pcard"
+  data-product="nike-air-max-1-ultra-white-orange" data-brand="nike" data-cat="lifestyle"
+  data-gender="women" data-color="white" data-price="14990"
+  data-stock="12" data-new="0" data-sale="17"
+  data-purpose="Повседневная носка" data-released="2026-01-20"
+  data-sizes="36,37.5,38,38.5,40"
+  data-name="Nike Air Max 1 Ultra" data-sku="FRM-NK-1088">
+  <a class="pcard__media" href="product/nike-air-max-1-ultra-white-orange/" tabindex="-1" aria-hidden="true">
+    <div class="pcard__badges"><span class="badge badge--sale">−17%</span></div>
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=560&h=560&q=80" alt="" width="560" height="560"
+         loading="lazy" decoding="async">
+  </a>
+  <button class="pcard__wish" type="button" data-wish="nike-air-max-1-ultra-white-orange"
+          aria-label="Добавить Nike Air Max 1 Ultra в избранное" aria-pressed="false"><svg class="ico " width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.7 13a4.6 4.6 0 0 1 6.5-6.5l.8.8.8-.8A4.6 4.6 0 1 1 19.3 13Z"/></svg></button>
+  <div class="pcard__body">
+    <span class="pcard__brand">Nike</span>
+    <h3 class="pcard__name"><a href="product/nike-air-max-1-ultra-white-orange/">Air Max 1 Ultra</a></h3>
+    <span class="pcard__color">Summit White / Total Orange</span>
+    <div class="pcard__prices"><span class="pcard__price">14 990 ₽</span><span class="pcard__old">17 990 ₽</span></div>
+    <div class="pcard__sizes">Размеры: 36 37.5 38 38.5 40</div>
+  </div>
+</article></div>
+</section>
+
+<section class="adv">
+  <div class="wrap">
+    <h2 class="sect__ttl">Почему у нас покупают</h2>
+    <ul class="adv__list"><li><h3>Оригинальная продукция</h3><p>Работаем с проверенными поставщиками и принимаем товар по накладным.</p></li><li><h3>Проверка перед отправкой</h3><p>Каждую пару осматриваем на брак и комплектность до передачи в доставку.</p></li><li><h3>Возврат 14 дней</h3><p>Не подошёл размер или не понравилась модель — вернём деньги.</p></li><li><h3>Доставка по России</h3><p>Курьером, в пункты выдачи и постаматы во всех регионах.</p></li></ul>
+  </div>
+</section>
+
+<section class="wrap sect">
+  <div class="news">
+    <div class="news__copy">
+      <h2 class="sect__ttl">Новинки и распродажи</h2>
+      <p class="lede">Присылаем письмо, когда приходит новая поставка или начинается снижение цен. Не чаще двух раз в месяц.</p>
+    </div>
+    <form class="news__form" data-form="newsletter">
+      <label class="sr-only" for="nl-email">Электронная почта</label>
+      <input id="nl-email" type="email" name="email" required placeholder="Ваш e-mail" autocomplete="email">
+      <button class="btn btn--grad" type="submit">Подписаться</button>
+      <p class="news__note">Нажимая «Подписаться», вы соглашаетесь с политикой обработки персональных данных.</p>
+      <p class="formmsg" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="ft">
+  <div class="ft__in">
+    <div class="ft-brand">
+      <span class="ft-brand__mark">ФОРМА</span>
+      <p>Мультибрендовый магазин спортивной и lifestyle-обуви</p>
+    </div>
+    <div class="ft-cols"><div class="ft-col"><h3>Магазин</h3><ul><li><a href="catalog/">Каталог</a></li><li><a href="catalog/new/">Новинки</a></li><li><a href="catalog/sale/">Sale</a></li><li><a href="brands/">Бренды</a></li></ul></div><div class="ft-col"><h3>Помощь</h3><ul><li><a href="delivery/">Доставка</a></li><li><a href="payment/">Оплата</a></li><li><a href="returns/">Возврат</a></li><li><a href="faq/">Вопросы и ответы</a></li></ul></div><div class="ft-col"><h3>Компания</h3><ul><li><a href="about/">О нас</a></li><li><a href="contacts/">Контакты</a></li><li><a href="brand-partnerships/">Brand Partnerships</a></li></ul></div><div class="ft-col"><h3>Документы</h3><ul><li><a href="offer/">Оферта</a></li><li><a href="privacy/">Конфиденциальность</a></li><li><a href="personal-data/">Персональные данные</a></li><li><a href="legal/">Реквизиты</a></li></ul></div><div class="ft-col ft-col--contacts"><h3>Контакты</h3><span class="ft-hours">Пн–Вс, 10:00–20:00 (МСК)</span></div></div>
+  </div>
+  <div class="ft__bar">
+    <span>© 2026 ФОРМА</span>
+    <span class="ft__bar-links">
+      <a href="offer/">Оферта</a>
+      <a href="privacy/">Конфиденциальность</a>
+    </span>
+  </div>
+</footer>
+<script src="assets/data.js?v=90996588" defer></script>
+<script src="assets/shop.js?v=e4bed4a4" defer></script>
+</body>
+</html>
