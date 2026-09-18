@@ -75,8 +75,8 @@
 
   function paintBadges() {
     var n = cartCount();
-    $$('[data-cart-count]').forEach(function (el) { el.textContent = n; el.hidden = !n; });
-    $$('[data-wish-count]').forEach(function (el) { el.textContent = wish.length; el.hidden = !wish.length; });
+    $$('[data-cart-count]').forEach(function (el) { el.textContent = n; el.hidden = !n && !el.hasAttribute('data-zero'); });
+    $$('[data-wish-count]').forEach(function (el) { el.textContent = wish.length; el.hidden = !wish.length && !el.hasAttribute('data-zero'); });
   }
 
   /* ── избранное ────────────────────────────────────── */
@@ -220,7 +220,8 @@
     return '<article class="pcard' + (stock ? '' : ' is-out') + '">' +
       '<a class="pcard__media" href="' + url(p.url) + '" tabindex="-1" aria-hidden="true">' +
       (badges ? '<div class="pcard__badges">' + badges + '</div>' : '') +
-      '<img src="' + p.img + '" alt="" width="560" height="560" loading="lazy"></a>' +
+      '<img src="' + p.img + '" alt="" width="640" height="800" loading="lazy">' +
+      (p.alt ? '<img class="pcard__alt" src="' + p.alt + '" alt="" width="640" height="800" loading="lazy">' : '') + '</a>' +
       '<button class="pcard__wish" type="button" data-wish="' + p.id + '" aria-pressed="false" ' +
       'aria-label="В избранное: ' + esc(p.name) + '">' + heartSVG() + '</button>' +
       '<div class="pcard__body">' +

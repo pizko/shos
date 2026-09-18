@@ -119,7 +119,7 @@ def filters_panel(items, u):
     {price_html}
     {opts('purpose', 'Назначение', purpose_opts)}
   </div>
-  <div class="filters__apply"><button class="btn btn--grad btn--wide" type="button" data-close-filters>Показать результаты</button></div>
+  <div class="filters__apply"><button class="btn btn--solid btn--wide" type="button" data-close-filters>Показать результаты</button></div>
 </aside>"""
 
 
@@ -266,7 +266,7 @@ def build_products():
       <p class="hint" id="pdp-hint" role="status"></p>
     </div>
     <div class="pdp-buy">
-      <button class="btn btn--grad btn--wide" type="button" id="pdp-add"
+      <button class="btn btn--solid btn--wide" type="button" id="pdp-add"
               data-product="{e(p['id'])}"{'' if stock else ' disabled'}>В корзину</button>
       <button class="btn btn--ghost pdp-wish" type="button" data-wish="{e(p['id'])}"
               aria-pressed="false" aria-label="В избранное">{icon('heart', 18)}<span>В избранное</span></button>
@@ -310,46 +310,53 @@ def build_products():
 def build_home():
     u, prefix = urlfor(0)
     c = CONTENT["home"]
-    hero_imgs = [p for p in PRODUCTS if p["id"] in (
-        "nike-air-jordan-1-mid-black-red", "nike-free-rn-flyknit-red",
-        "nike-air-force-1-shadow-pastel", "new-balance-247-olive")]
-    faces = ["face-front", "face-back", "face-top", "face-bottom"]
-    cube = "".join(
-        f'<div class="cube-face {faces[i]}"><img src="{img(p["image"], 700, 700)}" '
-        f'alt="{e(title_of(p, BRANDS))}" width="700" height="700"'
-        f'{" fetchpriority=\"high\"" if i == 0 else " loading=\"lazy\""}></div>'
-        for i, p in enumerate(hero_imgs))
-
-    newest = sorted([p for p in PRODUCTS if p.get("isNew")],
-                    key=lambda p: p["releasedAt"], reverse=True)[:4]
-    popular = [p for p in PRODUCTS if p["id"] in (
-        "puma-court-classic-white", "nike-air-force-1-07-lv8-wheat",
-        "new-balance-x90-pink-grey", "nike-free-rn-5-black-volt")]
-    sale = sorted([p for p in PRODUCTS if p.get("oldPrice")], key=lambda p: -discount(p))[:3]
+    P = {p["id"]: p for p in PRODUCTS}
 
     def count_for(pred):
         return sum(1 for p in PRODUCTS if pred(p))
 
-    # Баннер на всю ширину и две плитки под ним — ссылки на разделы каталога
-    bento = [
-        ("Мужское", "catalog/mens/", "photo-1514989940723-e8e51635b782",
-         "Город, зал и бег", count_for(lambda p: p["gender"] in ("men", "unisex")), True),
-        ("Женское", "catalog/womens/", "photo-1551107696-a4b0c5a0d9a2",
-         "Силуэты на каждый день", count_for(lambda p: p["gender"] in ("women", "unisex")), False),
-        ("Бег", "catalog/running/", "photo-1542291026-7eec264c27ff",
-         "Асфальт и стадион", count_for(lambda p: p["category"] == "running"), False),
-    ]
-    tiles_html = "".join(
-        f'<a class="tile{" tile--wide" if wide else ""}" href="{u(path)}">'
-        f'<img src="{img(pid, 1400, 790) if wide else img(pid, 700, 530)}" alt=""'
-        f' width="{1400 if wide else 700}" height="{790 if wide else 530}" loading="lazy">'
-        f'<span class="tile__body">'
-        f'<span class="tile__t">{e(t)}</span>'
-        f'<span class="tile__s">{e(sub)}</span>'
-        f'</span>'
-        f'<span class="tile__go">{plural(n, "модель", "модели", "моделей")}{icon("chev", 16)}</span></a>'
-        for t, path, pid, sub, n, wide in bento)
+    def cta(text, href, cls=""):
+        return f'<a class="cta {cls}" href="{href}">{e(text)} <span aria-hidden="true">↗</span></a>'
 
+    # ── первый экран: разворот из двух кадров одного бренда
+    hero_a, hero_b = P["new-balance-247-olive"], P["new-balance-x90-pink-grey"]
+    nb_count = count_for(lambda p: p["brand"] == "new-balance")
+
+    newest = sorted([p for p in PRODUCTS if p.get("isNew")], key=lambda p: p["releasedAt"], reverse=True)[:4]
+    popular = [P[i] for i in ("puma-court-classic-white", "nike-air-force-1-07-lv8-wheat",
+                              "new-balance-x90-pink-grey", "nike-free-rn-5-black-volt")]
+    sale = sorted([p for p in PRODUCTS if p.get("oldPrice")], key=lambda p: -discount(p))[:4]
+
+    # ── editorial: большой кадр слева, малый справа с подписью
+    ed_big, ed_small = P["nike-sb-janoski-max-grey"], P["nike-air-jordan-1-mid-black-red"]
+
+    # ── категории: кадры разной высоты
+    cats = [
+        ("Мужское", "catalog/mens/", P["vans-skate-classic-burgundy"]["image"],
+         count_for(lambda p: p["gender"] in ("men", "unisex")), "cat--a"),
+        ("Женское", "catalog/womens/", P["nike-air-force-1-shadow-pastel"]["image"],
+         count_for(lambda p: p["gender"] in ("women", "unisex")), "cat--b"),
+        ("Бег", "catalog/running/", "photo-1542291026-7eec264c27ff",
+         count_for(lambda p: p["category"] == "running"), "cat--c"),
+    ]
+    cats_html = "".join(
+        f'<a class="cat {cls}" href="{u(path)}"><span class="cat__img">'
+        f'<img src="{img(pid, 900, 1125)}" alt="" width="900" height="1125" loading="lazy" decoding="async"></span>'
+        f'<span class="cat__t">{e(t)}</span><span class="cat__n">{plural(n, "модель", "модели", "моделей")} ↗</span></a>'
+        for t, path, pid, n, cls in cats)
+
+    # ── индекс брендов: крупный список, при наведении — кадр бренда
+    brand_rows = ""
+    for b in BRAND_LIST:
+        items = [p for p in PRODUCTS if p["brand"] == b["slug"]]
+        if not items:
+            continue
+        brand_rows += (f'<li><a class="bindex__row" href="{u("brands/%s/" % b["slug"])}">'
+                       f'<span class="bindex__name">{e(b["name"])}</span>'
+                       f'<span class="bindex__n">{plural(len(items), "модель", "модели", "моделей")}</span>'
+                       f'<span class="bindex__go" aria-hidden="true">↗</span>'
+                       f'<img class="bindex__img" src="{img(items[0]["image"], 520, 650)}" alt="" width="520" height="650" loading="lazy" decoding="async">'
+                       f'</a></li>')
 
     lo = int(min(p["price"] for p in PRODUCTS) // 1000 * 1000)
     hi = int(-(-max(p["price"] for p in PRODUCTS) // 1000) * 1000)
@@ -363,92 +370,121 @@ def build_home():
          count_for(lambda p: p["category"] == "running")),
     ]
     rhythm_html = "".join(
-        f'<a class="rhythm" href="{u(path)}">'
-        f'<span class="rhythm__n">{plural(n, "модель", "модели", "моделей")}</span>'
-        f'<span class="rhythm__t">{e(t)}</span>'
-        f'<span class="rhythm__s">{e(s)}</span>'
-        f'<span class="rhythm__go">Смотреть{icon("chev", 15)}</span></a>'
-        for t, path, s, n in rhythms)
+        f'<li><a class="rhythm" href="{u(path)}"><span class="rhythm__i">0{i+1}</span>'
+        f'<span class="rhythm__t">{e(t)}</span><span class="rhythm__s">{e(sub)}</span>'
+        f'<span class="rhythm__n">{plural(n, "модель", "модели", "моделей")} ↗</span></a></li>'
+        for i, (t, path, sub, n) in enumerate(rhythms))
 
     adv = "".join(f'<li><h3>{e(a["title"])}</h3><p>{e(a["text"])}</p></li>' for a in c["advantages"])
 
     h = head(CFG, u,
              title="%s — мультибрендовый магазин кроссовок Nike, New Balance, Puma, Vans" % CFG["siteName"],
              desc="Кроссовки для бега, тренировок и города. Доставка по России, возврат 14 дней, проверка каждой пары перед отправкой.",
-             path="", og_image=img(hero_imgs[0]["image"], 1200, 630),
+             path="", og_image=img(hero_a["image"], 1200, 630),
              schema=[org_schema(CFG, u), website_schema(CFG)])
 
-    body = f"""<section class="hero relative w-full flex items-center overflow-hidden">
-  <div class="hero-mark" aria-hidden="true">
-    <div class="container mx-auto px-6"><span>Твой<br>ход</span></div>
-  </div>
-  <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
-    <div class="flex flex-col gap-6 order-2 md:order-1">
-      <div class="uppercase text-sm font-bold tracking-[0.2em] text-[#999999]">{e(c['heroEyebrow'])}</div>
-      <h1 class="hero-title font-heavy uppercase">{c['heroTitle']}</h1>
-      <p class="text-lg font-light text-[#999999] max-w-md">{e(c['heroText'])}</p>
-      <div class="pt-4 hero-cta">
-        <a class="btn btn--grad" href="{u('catalog/')}">{e(c['heroCta'])}</a>
-        <a class="btn btn--ghost" href="{u('catalog/new/')}">Новинки</a>
-      </div>
-    </div>
-    <div class="order-1 md:order-2 h-[50vh] flex items-center justify-center">
-      <div class="scene"><div class="cube">{cube}</div></div>
+    def sect_head(title, link_text, link):
+        return (f'<div class="shead"><h2 class="shead__t">{title}</h2>'
+                f'{cta(link_text, u(link)) if link else ""}</div>')
+
+    body = f"""<h1 class="sr-only">{e(CFG['siteName'])} — мультибрендовый магазин кроссовок</h1>
+
+<section class="hero" aria-labelledby="hero-t">
+  <a class="hero__main" href="{product_url(hero_a, u)}" tabindex="-1" aria-hidden="true">
+    <img src="{img(hero_a['image'], 1500, 1500)}" alt="" width="1500" height="1500" fetchpriority="high" decoding="async">
+  </a>
+  <div class="hero__side">
+    <p class="hero__eyebrow">Drop 024 / New Balance</p>
+    <a class="hero__second" href="{product_url(hero_b, u)}" aria-label="{e(title_of(hero_b, BRANDS))}">
+      <img src="{img(hero_b['image'], 760, 950)}" alt="{e(title_of(hero_b, BRANDS))}" width="760" height="950" decoding="async">
+      <span class="hero__cap">{e(hero_b['model'])} / {e(hero_b['colorName'])} — {money(hero_b['price'])}</span>
+    </a>
+    <div class="hero__copy">
+      <h2 class="hero__t" id="hero-t"><span>{e(hero_a['model'])}</span><span>Olive</span></h2>
+      <p class="hero__meta">{e(title_of(hero_a, BRANDS))} · {e(hero_a['colorName'])} · {money(hero_a['price'])}</p>
+      {cta('Смотреть дроп', u('brands/new-balance/'), 'cta--lg')}
     </div>
   </div>
 </section>
 
-<div class="border-y border-white/10 py-4 bg-[#111111] overflow-hidden flex items-center" aria-hidden="true">
-  <div class="marquee-container w-full"><div class="marquee-content text-2xl md:text-4xl font-heavy uppercase tracking-widest text-[#999999]">
-    NIKE • NEW BALANCE • PUMA • VANS • NIKE • NEW BALANCE • PUMA • VANS • NIKE • NEW BALANCE • PUMA • VANS •
-  </div></div>
-</div>
-
 <section class="wrap sect">
-  <div class="sect__head"><h2 class="sect__ttl">Новинки</h2><a class="linkish" href="{u('catalog/new/')}">Все новинки</a></div>
+  {sect_head('Новинки', 'Все новинки', 'catalog/new/')}
   {product_grid(newest, BRANDS, u)}
 </section>
 
-<section class="wrap sect">
-  <div class="sect__head"><h2 class="sect__ttl">Категории</h2></div>
-  <div class="tiles">{tiles_html}</div>
+<section class="campaign">
+  <a class="campaign__link" href="{u('catalog/mens/')}">
+    <img src="{img('photo-1514989940723-e8e51635b782', 2000, 1100)}" alt="Кроссовки на улице" width="2000" height="1100" loading="lazy" decoding="async">
+    <span class="campaign__copy">
+      <span class="campaign__eyebrow">Город / Осень 2026</span>
+      <span class="campaign__t">Мужское</span>
+      <span class="cta cta--light">К коллекции <span aria-hidden="true">↗</span></span>
+    </span>
+  </a>
+</section>
+
+<section class="wrap sect editorial">
+  <a class="editorial__big" href="{product_url(ed_big, u)}">
+    <img src="{img(ed_big['image'], 1300, 1100)}" alt="{e(title_of(ed_big, BRANDS))}" width="1300" height="1100" loading="lazy" decoding="async">
+    <span class="editorial__cap">{e(ed_big['model'])} / {e(ed_big['colorName'])}</span>
+  </a>
+  <div class="editorial__side">
+    <a class="editorial__small" href="{product_url(ed_small, u)}" tabindex="-1" aria-hidden="true">
+      <img src="{img(ed_small['image'], 700, 875)}" alt="" width="700" height="875" loading="lazy" decoding="async">
+    </a>
+    <div class="editorial__txt">
+      <span class="editorial__brand">{e(BRANDS[ed_small['brand']]['name'])}</span>
+      <span class="editorial__line">Классика баскетбола</span>
+      <span class="editorial__model">{e(ed_small['model'])}</span>
+      <span class="editorial__color">{e(ed_small['colorName'])} · {money(ed_small['price'])}</span>
+      {cta('Смотреть', product_url(ed_small, u))}
+    </div>
+  </div>
 </section>
 
 <section class="wrap sect">
-  <div class="sect__head"><h2 class="sect__ttl">Популярное</h2><a class="linkish" href="{u('catalog/')}">Весь каталог</a></div>
+  {sect_head('Популярное', 'Весь каталог', 'catalog/')}
   {product_grid(popular, BRANDS, u)}
 </section>
 
 <section class="wrap sect">
-  <div class="sect__head"><h2 class="sect__ttl">Sale</h2><a class="linkish" href="{u('catalog/sale/')}">Все скидки</a></div>
+  {sect_head('Категории', '', '')}
+  <div class="cats">{cats_html}</div>
+</section>
+
+<section class="bindex" aria-labelledby="bindex-t">
+  <div class="wrap">
+    <div class="shead"><h2 class="shead__t" id="bindex-t">Бренды</h2>{cta('Все бренды', u('brands/'))}</div>
+    <ul class="bindex__list">{brand_rows}</ul>
+  </div>
+</section>
+
+<section class="wrap sect">
+  {sect_head('Sale', 'Все скидки', 'catalog/sale/')}
   {product_grid(sale, BRANDS, u)}
 </section>
 
-<section class="glow-section rhythms-sect">
-  <div class="wrap">
-    <div class="sect__head"><h2 class="sect__ttl">Три ритма</h2></div>
-    <div class="rhythms">{rhythm_html}</div>
+<section class="wrap sect rhythms-sect">
+  {sect_head('Три ритма', '', '')}
+  <ol class="rhythms">{rhythm_html}</ol>
 
-    <div class="budget">
+  <div class="budget" id="budget">
+    <div class="budget__head">
       <h3 class="budget__ttl">Подбор по бюджету</h3>
-      <div class="budget__read">
-        <span class="budget__label">До</span>
-        <span class="budget__val" id="budget-val">{money(start)}</span>
-        <span class="budget__cnt">Подходит пар: <b id="budget-n">0</b></span>
-      </div>
-      <input class="budget__range" type="range" id="budget-range"
-             min="{lo}" max="{hi}" step="500" value="{start}"
-             aria-label="Максимальная цена в рублях">
-      <div class="budget__scale"><span>{money(lo)}</span><span>{money(hi)}</span></div>
-      <div class="budget__hits" id="budget-hits"></div>
-      <a class="btn btn--white" id="budget-go" href="{u('catalog/')}">Показать варианты</a>
+      <span class="budget__cnt">Подходит пар: <b id="budget-n">0</b></span>
     </div>
+    <div class="budget__read"><span class="budget__label">До</span><span class="budget__val" id="budget-val">{money(start)}</span></div>
+    <input class="budget__range" type="range" id="budget-range"
+           min="{lo}" max="{hi}" step="500" value="{start}" aria-label="Максимальная цена в рублях">
+    <div class="budget__scale"><span>{money(lo)}</span><span>{money(hi)}</span></div>
+    <div class="budget__hits" id="budget-hits"></div>
+    <a class="btn" id="budget-go" href="{u('catalog/')}">Показать варианты</a>
   </div>
 </section>
 
 <section class="adv">
   <div class="wrap">
-    <h2 class="sect__ttl">{e(c['advantagesTitle'])}</h2>
+    <h2 class="shead__t">{e(c['advantagesTitle'])}</h2>
     <ul class="adv__list">{adv}</ul>
   </div>
 </section>
@@ -456,13 +492,13 @@ def build_home():
 <section class="wrap sect">
   <div class="news">
     <div class="news__copy">
-      <h2 class="sect__ttl">{e(c['newsletterTitle'])}</h2>
+      <h2 class="shead__t">{e(c['newsletterTitle'])}</h2>
       <p class="lede">{e(c['newsletterText'])}</p>
     </div>
     <form class="news__form" data-form="newsletter">
       <label class="sr-only" for="nl-email">Электронная почта</label>
       <input id="nl-email" type="email" name="email" required placeholder="Ваш e-mail" autocomplete="email">
-      <button class="btn btn--grad" type="submit">Подписаться</button>
+      <button class="btn" type="submit">Подписаться</button>
       <p class="news__note">{e(c['newsletterNote'])}</p>
       <p class="formmsg" role="status" hidden></p>
     </form>
@@ -478,12 +514,13 @@ def build_brands():
     cards = ""
     for b in BRAND_LIST:
         items = [p for p in PRODUCTS if p["brand"] == b["slug"]]
-        cards += f"""<a class="brandcard" href="{u('brands/%s/' % b['slug'])}">
-      <span class="brandcard__name">{e(b['name'])}</span>
-      <span class="brandcard__meta">{e(b['country'])} · с {b['founded']}</span>
-      <p class="brandcard__sum">{e(b['summary'])}</p>
-      <span class="brandcard__n">{plural(len(items), "модель", "модели", "моделей")}</span>
-    </a>"""
+        pic = (f'<img class="bindex__img" src="{img(items[0]["image"], 520, 650)}" alt="" width="520" height="650" '
+               f'loading="lazy" decoding="async">') if items else ""
+        cards += f"""<li><a class="bindex__row" href="{u('brands/%s/' % b['slug'])}">
+      <span class="bindex__name">{e(b['name'])}</span>
+      <span class="bindex__n">{e(b['country'])} · с {b['founded']} · {plural(len(items), "модель", "модели", "моделей")}</span>
+      <span class="bindex__go" aria-hidden="true">↗</span>{pic}
+    </a><p class="bindex__sum">{e(b['summary'])}</p></li>"""
     crumbs = [("Главная", ""), ("Бренды", "brands/")]
     h = head(CFG, u, title="Бренды — %s" % CFG["siteName"],
              desc="Бренды в каталоге: Nike, New Balance, Puma, Vans. Кроссовки для бега, тренировок и города.",
@@ -493,7 +530,7 @@ def build_brands():
   <p class="lede">Мы независимый магазин и собираем ассортимент по качеству моделей. Портфель брендов расширяется —
   условия сотрудничества описаны на странице <a class="linkish" href="{u('brand-partnerships/')}">Brand Partnerships</a>.</p>
 </div></section>
-<section class="wrap sect"><div class="brandgrid">{cards}</div></section>"""
+<section class="bindex bindex--page"><div class="wrap"><ul class="bindex__list">{cards}</ul></div></section>"""
     mk("brands/", page(CFG, u, head_html=h, body=body, active="brands/",
                        body_class="page-brands", base_prefix=prefix))
 
@@ -602,7 +639,7 @@ def contact_form(kind, title, note, fields):
     return f"""<form class="cform" data-form="{e(kind)}">
   <h2 class="sect__ttl">{e(title)}</h2>
   <div class="cform__grid">{fi}</div>
-  <button class="btn btn--grad" type="submit">Отправить</button>
+  <button class="btn btn--solid" type="submit">Отправить</button>
   <p class="cform__note">{e(note)}</p>
   <p class="formmsg" role="status" hidden></p>
 </form>"""
@@ -788,7 +825,7 @@ def build_cart():
       <div class="summary__row"><span>Товары</span><b data-sum-goods>0 ₽</b></div>
       <div class="summary__row summary__row--muted"><span>Доставка</span><span>рассчитывается при оформлении</span></div>
       <div class="summary__row summary__row--total"><span>К оплате</span><b data-sum-total>0 ₽</b></div>
-      <a class="btn btn--grad btn--wide" href="{u('checkout/')}">Перейти к оформлению</a>
+      <a class="btn btn--solid btn--wide" href="{u('checkout/')}">Перейти к оформлению</a>
       <a class="btn btn--ghost btn--wide" href="{u('catalog/')}">Продолжить покупки</a>
       {trust_block()}
     </aside>
@@ -838,7 +875,7 @@ def build_checkout():
       </fieldset>
       <label class="agree"><input type="checkbox" id="co-agree" required>
         <span>Я согласен с <a href="{u('offer/')}">офертой</a> и <a href="{u('personal-data/')}">обработкой персональных данных</a></span></label>
-      <button class="btn btn--grad btn--wide" type="submit">Оформить заказ</button>
+      <button class="btn btn--solid btn--wide" type="submit">Оформить заказ</button>
       <p class="formmsg" role="status" hidden></p>
     </form>
     <aside class="summary" id="checkout-summary">
@@ -870,7 +907,7 @@ def build_search():
   <form class="searchpage__form" role="search" method="get">
     <label class="sr-only" for="q">Поисковый запрос</label>
     <input id="q" name="q" type="search" placeholder="Бренд, модель или артикул" autocomplete="off">
-    <button class="btn btn--grad" type="submit">Найти</button>
+    <button class="btn btn--solid" type="submit">Найти</button>
   </form>
   <p class="searchpage__meta" id="search-meta"></p>
   <div id="search-results"></div>
@@ -915,7 +952,7 @@ def build_404():
   <h1 class="ttl">404</h1>
   <p class="lede">Такой страницы нет. Возможно, товар снят с продажи или адрес введён с ошибкой.</p>
   <div class="hero-cta">
-    <a class="btn btn--grad" href="{u('catalog/')}">В каталог</a>
+    <a class="btn btn--solid" href="{u('catalog/')}">В каталог</a>
     <a class="btn btn--ghost" href="{u('')}">На главную</a>
   </div>
 </div></section>"""
@@ -936,7 +973,8 @@ def build_data_js():
             "price": p["price"], "oldPrice": p.get("oldPrice"),
             "isNew": bool(p.get("isNew")), "releasedAt": p["releasedAt"],
             "sizes": [{"size": s["size"], "stock": s["stock"]} for s in p["sizes"]],
-            "img": img(p["image"], 560, 560),
+            "img": img(p["image"], 640, 800),
+            "alt": comp.alt_img(p["image"]),
             "thumb": img(p["image"], 200, 200),
             "url": "product/%s/" % p["id"],
         })

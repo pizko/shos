@@ -69,6 +69,11 @@ def img(pid, w=800, h=800, view=0, q=80):
     return IMG.format(id=pid, w=w, h=h, q=q, extra=VIEWS[view % len(VIEWS)])
 
 
+def alt_img(pid, w=640, h=800):
+    """Второй кадр для наведения: крупный план того же снимка (другой съёмки у нас нет)."""
+    return IMG.format(id=pid, w=w, h=h, q=80, extra="&crop=focalpoint&fp-x=.5&fp-y=.55&fp-z=1.7")
+
+
 def gallery(p, w=1000):
     return [img(p["image"], w, w, i) for i in range(len(VIEWS))]
 
@@ -104,7 +109,7 @@ def head(cfg, u, *, title, desc, path, h1=None, og_image=None, schema=None, robo
         '<title>%s</title>' % e(title),
         '<meta name="description" content="%s">' % e(desc),
         '<link rel="canonical" href="%s">' % e(canonical),
-        '<meta name="theme-color" content="#050505">',
+        '<meta name="theme-color" content="#F4F3EF">',
         '<meta property="og:type" content="website">',
         '<meta property="og:site_name" content="%s">' % e(cfg["siteName"]),
         '<meta property="og:title" content="%s">' % e(title),
@@ -119,9 +124,10 @@ def head(cfg, u, *, title, desc, path, h1=None, og_image=None, schema=None, robo
     out += [
         '<link rel="icon" href="%s" type="image/svg+xml">' % u("assets/favicon.svg"),
         '<link rel="preconnect" href="https://images.unsplash.com" crossorigin>',
-        '<link rel="preload" as="style" href="%s">' % u(ver("styles.css")),
-        '<link rel="stylesheet" href="%s">' % u(ver("styles.css")),
-        '<link rel="stylesheet" href="%s">' % u(ver("refine.css")),
+        '<link rel="preconnect" href="https://fonts.googleapis.com">',
+        '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+        # Barlow Condensed из ТЗ без кириллицы — заголовки на Fira Sans Extra Condensed того же рисунка
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@500;600;700&family=Inter:wght@400;500;700&display=swap">',
         '<link rel="stylesheet" href="%s">' % u(ver("shop.css")),
     ]
     for s in (schema or []):
@@ -228,38 +234,30 @@ def icon(name, size=20, cls=""):
             'stroke-linejoin="round" aria-hidden="true">%s</svg>') % (cls, size, size, ICONS[name])
 
 
+HDR_NAV = [("Новинки", "catalog/new/"), ("Кроссовки", "catalog/"), ("Мужское", "catalog/mens/"),
+           ("Женское", "catalog/womens/"), ("Бренды", "brands/"), ("Sale", "catalog/sale/")]
+
+
 def header(cfg, u, active=""):
     links = "".join(
         '<a href="%s"%s>%s</a>' % (u(path), ' aria-current="page"' if path == active else "", e(name))
-        for name, path in NAV)
+        for name, path in HDR_NAV)
     mob = "".join(
-        '<a href="%s"%s>%s %s</a>' % (u(path), ' aria-current="page"' if path == active else "",
-                                      e(name), icon("chev", 16))
+        '<a href="%s"%s><span>%s</span><i aria-hidden="true">↗</i></a>' % (
+            u(path), ' aria-current="page"' if path == active else "", e(name))
         for name, path in NAV)
-
-    phone = ""
-    if cfg["contacts"].get("phone"):
-        ph = cfg["contacts"]["phone"]
-        phone = '<a class="hdr-top__phone" href="tel:%s">%s</a>' % (
-            e(re.sub(r"[^\d+]", "", ph)), e(ph))
 
     return f"""<a class="skip" href="#main">Перейти к содержимому</a>
 <header class="hdr" id="site-header">
-  <div class="hdr-top">
-    <div class="hdr-top__in">
-      <span>Доставка по России · возврат 14 дней</span>
-      {phone}
-    </div>
-  </div>
   <div class="hdr-main">
-    <button class="hdr-burger" type="button" data-open-menu aria-label="Открыть меню" aria-expanded="false">{icon('burger', 22)}</button>
-    <a class="hdr-logo" href="{u('')}"><span class="hdr-logo__dot" aria-hidden="true"></span>{e(cfg['siteName'])}</a>
+    <button class="hdr-burger" type="button" data-open-menu aria-label="Открыть меню" aria-expanded="false">Меню</button>
+    <a class="hdr-logo" href="{u('')}">{e(cfg['siteName'])}<sup>®</sup></a>
     <nav class="hdr-nav" aria-label="Основное меню">{links}</nav>
     <div class="hdr-actions">
-      <button class="hdr-btn" type="button" data-open-search aria-label="Поиск">{icon('search')}</button>
-      <a class="hdr-btn" href="{u('wishlist/')}" aria-label="Избранное">{icon('heart')}<span class="hdr-badge" data-wish-count hidden>0</span></a>
-      <a class="hdr-btn hdr-btn--acct" href="{u('account/')}" aria-label="Аккаунт">{icon('user')}</a>
-      <a class="hdr-btn hdr-btn--cart" href="{u('cart/')}" aria-label="Корзина">{icon('bag')}<span class="hdr-badge" data-cart-count hidden>0</span></a>
+      <button class="hdr-txt" type="button" data-open-search aria-label="Поиск">Поиск</button>
+      <a class="hdr-txt hdr-txt--wish" href="{u('wishlist/')}">Избранное <span class="hdr-count">(<span data-wish-count data-zero>0</span>)</span></a>
+      <a class="hdr-txt hdr-txt--acct" href="{u('account/')}">Аккаунт</a>
+      <a class="hdr-txt hdr-txt--cart" href="{u('cart/')}">Корзина <span class="hdr-count">(<span data-cart-count data-zero>0</span>)</span></a>
     </div>
   </div>
 </header>
@@ -268,8 +266,8 @@ def header(cfg, u, active=""):
   <div class="drawer__scrim" data-close-menu></div>
   <nav class="drawer__panel" aria-label="Мобильное меню">
     <div class="drawer__head">
-      <span class="drawer__title">Меню</span>
-      <button class="hdr-btn" type="button" data-close-menu aria-label="Закрыть меню">{icon('close')}</button>
+      <span class="drawer__title">ФОРМА<sup>®</sup></span>
+      <button class="hdr-txt" type="button" data-close-menu aria-label="Закрыть меню">Закрыть</button>
     </div>
     <div class="drawer__links">{mob}</div>
     <div class="drawer__foot">
@@ -289,7 +287,7 @@ def header(cfg, u, active=""):
       {icon('search', 22, 'srch__ico')}
       <input class="srch__input" type="search" name="q" id="site-search" autocomplete="off"
              placeholder="Бренд, модель или артикул" aria-label="Поисковый запрос">
-      <button class="hdr-btn" type="button" data-close-search aria-label="Закрыть поиск">{icon('close')}</button>
+      <button class="hdr-txt" type="button" data-close-search aria-label="Закрыть поиск">Закрыть</button>
     </form>
     <div class="srch__hint">Например: Air Force, New Balance, FRM-NK-1041</div>
     <div class="srch__out" id="search-suggest" role="listbox" aria-label="Подсказки"></div>
@@ -384,11 +382,12 @@ def product_card(p, brands, u, *, eager=False):
   data-name="{e(title_of(p, brands))}" data-sku="{e(p['sku'])}">
   <a class="pcard__media" href="{product_url(p, u)}" tabindex="-1" aria-hidden="true">
     {badges(p)}
-    <img src="{img(p['image'], 560, 560)}" alt="" width="560" height="560"
+    <img src="{img(p['image'], 640, 800)}" alt="" width="640" height="800"
          loading="{'eager' if eager else 'lazy'}" decoding="async">
+    <img class="pcard__alt" src="{alt_img(p['image'])}" alt="" width="640" height="800" loading="lazy" decoding="async">
   </a>
   <button class="pcard__wish" type="button" data-wish="{e(p['id'])}"
-          aria-label="Добавить {e(title_of(p, brands))} в избранное" aria-pressed="false">{icon('heart', 18)}</button>
+          aria-label="Добавить {e(title_of(p, brands))} в избранное" aria-pressed="false">{icon('heart', 17)}</button>
   <div class="pcard__body">
     <span class="pcard__brand">{e(brands[p['brand']]['name'])}</span>
     <h3 class="pcard__name"><a href="{product_url(p, u)}">{e(p['model'])}</a></h3>
